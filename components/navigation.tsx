@@ -39,7 +39,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link
-            href="#"
+            href="/"
             className="flex items-center  font-display font-bold text-xl"
           >
             <span className="hidden sm:inline ">Anas</span>
