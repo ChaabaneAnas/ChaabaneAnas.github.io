@@ -86,7 +86,7 @@ export default function Hero() {
             <div className="relative glass rounded-2xl p-8 h-full flex items-center justify-center border border-accent/20">
               <div className="text-center space-y-4">
                 <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-accent/20 border border-accent/50">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent/50 animate-pulse" />
+                  <div className="w-16 h-16 rounded-full bg-linear-to-br from-accent to-accent/50 animate-pulse" />
                 </div>
                 <p className="text-sm font-mono text-accent/70">
                   Ready to create
