@@ -1,14 +1,16 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import CountUp from "./Countup";
+import Link from "next/link";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center pt-20 overflow-hidden">
       {/* Background gradient accent */}
-      <div className="absolute inset-0 bg-gradient-to-b from-accent/10 via-background to-background pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-accent/10 via-background to-background pointer-events-none" />
 
       {/* Subtle animated code terminal graphic */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-20 dark:opacity-30 pointer-events-none">
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-50 dark:opacity-60 pointer-events-none">
         <div className="font-mono text-xs text-accent space-y-1">
           <div>$ npm run build</div>
           <div className="text-accent/60">&gt; Building project...</div>
@@ -40,23 +42,39 @@ export default function Hero() {
               >
                 See latest project →
               </Button>
-              <Button variant="outline" size="lg" className="">
-                ⬇ Download résumé
+              <Button variant="outline" size="lg" className="" asChild>
+                <Link
+                  download
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ⬇ Download résumé
+                </Link>
               </Button>
             </div>
 
             {/* Quick stats */}
             <div className="flex gap-8 text-sm">
               <div>
-                <div className="font-bold text-lg text-accent">8+</div>
+                <div className="text-lg font-bold text-accent">
+                  <CountUp to={3} className="text-accent" />
+                  <span>+</span>
+                </div>
                 <div className="text-foreground/60">Years Experience</div>
               </div>
               <div>
-                <div className="font-bold text-lg text-accent">50+</div>
+                <div className="text-lg font-bold text-accent">
+                  <CountUp to={15} className="text-accent" />
+                  <span>+</span>
+                </div>
                 <div className="text-foreground/60">Projects Shipped</div>
               </div>
               <div>
-                <div className="font-bold text-lg text-accent">100%</div>
+                <div className="text-lg font-bold text-accent">
+                  <CountUp to={100} className="text-accent" />
+                  <span>%</span>
+                </div>
                 <div className="text-foreground/60">Test Coverage</div>
               </div>
             </div>
@@ -64,7 +82,7 @@ export default function Hero() {
 
           {/* Right Column - Visual */}
           <div className="hidden md:block relative h-96">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-accent/5 to-transparent rounded-2xl blur-3xl" />
+            <div className="absolute inset-0 bg-linear-to-br from-accent/20 via-accent/5 to-transparent rounded-2xl blur-3xl" />
             <div className="relative glass rounded-2xl p-8 h-full flex items-center justify-center border border-accent/20">
               <div className="text-center space-y-4">
                 <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-accent/20 border border-accent/50">
