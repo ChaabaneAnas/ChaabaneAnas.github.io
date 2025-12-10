@@ -29,10 +29,10 @@ export default function ThemeToggle() {
 
   return (
     <Button
-      variant="ghost"
+      variant="outline"
       size="icon"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="h-8 w-8 bg-accent/70 text-accent-foreground hover:bg-accent/90 rounded-lg transition-colors"
+      className=" border border-accent/30 text-accent/70 bg-card/50 dark:text-foreground dark:border-foreground/30 dark:hover:text-accent  dark:hover:border-accent/30 "
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
       {isDark ? <Sun size={20} /> : <Moon size={20} />}
