@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import CountUp from "./Countup";
 
 export default function Hero() {
   return (
@@ -48,15 +49,24 @@ export default function Hero() {
             {/* Quick stats */}
             <div className="flex gap-8 text-sm">
               <div>
-                <div className="font-bold text-lg text-accent">8+</div>
+                <div className="text-lg font-bold text-accent">
+                  <CountUp to={3} className="text-accent" />
+                  <span>+</span>
+                </div>
                 <div className="text-foreground/60">Years Experience</div>
               </div>
               <div>
-                <div className="font-bold text-lg text-accent">50+</div>
+                <div className="text-lg font-bold text-accent">
+                  <CountUp to={15} className="text-accent" />
+                  <span>+</span>
+                </div>
                 <div className="text-foreground/60">Projects Shipped</div>
               </div>
               <div>
-                <div className="font-bold text-lg text-accent">100%</div>
+                <div className="text-lg font-bold text-accent">
+                  <CountUp to={100} className="text-accent" />
+                  <span>%</span>
+                </div>
                 <div className="text-foreground/60">Test Coverage</div>
               </div>
             </div>
