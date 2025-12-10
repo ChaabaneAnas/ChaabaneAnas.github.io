@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-linear-to-b from-accent/10 via-background to-background pointer-events-none" />
 
       {/* Subtle animated code terminal graphic */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-20 dark:opacity-30 pointer-events-none">
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-50 dark:opacity-60 pointer-events-none">
         <div className="font-mono text-xs text-accent space-y-1">
           <div>$ npm run build</div>
           <div className="text-accent/60">&gt; Building project...</div>
