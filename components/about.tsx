@@ -2,8 +2,8 @@
 
 export default function About() {
   const facts = [
-    { label: "Location", value: "San Francisco, CA" },
-    { label: "Experience", value: "8+ years" },
+    { label: "Location", value: "Sousse, TN" },
+    { label: "Experience", value: "3+ years" },
     { label: "Focus", value: "React, TypeScript, Node.js" },
   ];
 
@@ -17,10 +17,13 @@ export default function About() {
               About <span className="text-accent">me</span>
             </h2>
             <p className="text-foreground/80 leading-relaxed text-lg">
-              I&apos;m a full-stack engineer passionate about crafting
-              accessible, performant digital experiences. With a strong
-              foundation in both frontend and backend technologies, I enjoy
-              solving complex problems and mentoring junior developers.
+              Results-driven Full Stack Developer with 3 years of experience
+              building high-performance web applications. Specialized in React
+              ecosystem (React, Next.js, TypeScript) and modern backend
+              technologies (Node.js, NestJS, GraphQL). Demonstrated success in
+              optimizing application performance and delivering exceptional user
+              experiences. Passionate about clean code and staying current with
+              emerging technologies
             </p>
           </div>
 
