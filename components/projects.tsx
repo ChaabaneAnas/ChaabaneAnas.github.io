@@ -75,8 +75,8 @@ export default function Projects() {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <Dialog>
-              <DialogTrigger key={project.id} className="pointer-cursor">
+            <Dialog key={project.id}>
+              <DialogTrigger className="pointer-cursor">
                 <div className="relative overflow-hidden rounded-xl mb-4 h-48 bg-muted">
                   <Image
                     src={project.image || "/placeholder.svg"}
