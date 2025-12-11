@@ -50,7 +50,7 @@ export default function Hero() {
               <Button variant="outline" size="lg" className="" asChild>
                 <Link
                   download
-                  href="/resume.pdf"
+                  href="/Anas Chaabane.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
