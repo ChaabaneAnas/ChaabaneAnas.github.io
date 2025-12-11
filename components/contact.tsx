@@ -1,39 +1,51 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { useState } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Github, Gitlab, Linkedin, Mail } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
     // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setIsSubmitting(false)
-    setFormData({ name: "", email: "", message: "" })
-  }
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    setIsSubmitting(false);
+    setFormData({ name: "", email: "", message: "" });
+  };
 
   const socialLinks = [
-    { icon: "GitHub", href: "#", label: "GitHub" },
-    { icon: "LinkedIn", href: "#", label: "LinkedIn" },
-    { icon: "Twitter", href: "#", label: "Twitter" },
-    { icon: "✉", href: "mailto:hello@example.com", label: "Email" },
-  ]
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/chaabaneanas/",
+      label: "LinkedIn",
+    },
+    { icon: Github, href: "https://github.com/ChaabaneAnas", label: "GitHub" },
+    {
+      icon: Gitlab,
+      href: "https://gitlab.com/anas.chaabane98",
+      label: "GitLab",
+    },
+
+    { icon: Mail, href: "mailto:anas.chaabane98@gmail.com", label: "Email" },
+  ];
 
   return (
     <section id="contact" className="relative py-20 px-4 sm:px-6 lg:px-8">
@@ -42,7 +54,8 @@ export default function Contact() {
           Let&apos;s <span className="text-accent">Connect</span>
         </h2>
         <p className="text-center text-foreground/60 mb-12">
-          Got a project in mind? Let&apos;s discuss how I can help bring your ideas to life.
+          Got a project in mind? Let&apos;s discuss how I can help bring your
+          ideas to life.
         </p>
 
         <div className="grid md:grid-cols-2 gap-12">
@@ -97,14 +110,20 @@ export default function Contact() {
           <div className="space-y-4">
             <h3 className="font-bold text-lg mb-6">Or connect on</h3>
             <div className="space-y-3">
-              {socialLinks.map(({ icon, href, label }) => (
+              {socialLinks.map((link) => (
                 <Link
-                  key={label}
-                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  key={link.label}
+                  href={link.href}
                   className="group flex items-center gap-4 p-4 rounded-lg border border-accent/10 bg-card/50 hover:border-accent/50 hover:bg-card transition-all duration-300"
                 >
-                  <span className="text-accent text-xl group-hover:scale-110 transition-transform">{icon}</span>
-                  <span className="text-foreground group-hover:text-accent transition-colors font-medium">{label}</span>
+                  <span className="text-accent text-xl group-hover:scale-110 transition-transform">
+                    <link.icon />
+                  </span>
+                  <span className="text-foreground group-hover:text-accent transition-colors font-medium">
+                    {link.label}
+                  </span>
                 </Link>
               ))}
             </div>
@@ -128,10 +147,10 @@ export default function Contact() {
       {/* Footer */}
       <div className="mt-20 pt-12 border-t border-border text-center text-sm text-foreground/60">
         <p>
-          Designed and built with <span className="text-accent">care</span>. © {new Date().getFullYear()} All rights
-          reserved.
+          Designed and built with <span className="text-accent">care</span>. ©{" "}
+          {new Date().getFullYear()} All rights reserved.
         </p>
       </div>
     </section>
-  )
+  );
 }
