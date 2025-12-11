@@ -11,7 +11,7 @@ export default function Hero() {
 
       {/* Subtle animated code terminal graphic */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-50 dark:opacity-60 pointer-events-none">
-        <div className="font-mono text-xs text-accent space-y-1">
+        <div className="font-mono text-xs text-accent space-y-1 hidden md:block">
           <div>$ npm run build</div>
           <div className="text-accent/60">&gt; Building project...</div>
           <div className="text-accent/40">Compiling components...</div>
