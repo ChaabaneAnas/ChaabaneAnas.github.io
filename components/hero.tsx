@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import CountUp from "./Countup";
 import Link from "next/link";
+import { ArrowDown, ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -11,7 +12,7 @@ export default function Hero() {
 
       {/* Subtle animated code terminal graphic */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-50 dark:opacity-60 pointer-events-none">
-        <div className="font-mono text-xs text-accent space-y-1">
+        <div className="font-mono text-xs text-accent space-y-1 hidden md:block">
           <div>$ npm run build</div>
           <div className="text-accent/60">&gt; Building project...</div>
           <div className="text-accent/40">Compiling components...</div>
@@ -22,7 +23,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
-          <div className="animate-slide-in space-y-8">
+          <div className="animate-in fade-in slide-in-from-bottom-20 ease-in duration-500 space-y-8">
             <div className="space-y-4">
               <h1 className="font-display text-5xl md:text-7xl font-bold tracking-tight text-balance">
                 Build. Deploy.
@@ -39,8 +40,12 @@ export default function Hero() {
               <Button
                 size="lg"
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold group"
+                asChild
               >
-                See latest project →
+                <Link href="#work">
+                  <span>See latest project</span>
+                  <ArrowRight />{" "}
+                </Link>
               </Button>
               <Button variant="outline" size="lg" className="" asChild>
                 <Link
@@ -49,7 +54,8 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  ⬇ Download résumé
+                  <span>Download résumé</span>
+                  <ArrowDown />
                 </Link>
               </Button>
             </div>

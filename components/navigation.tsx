@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import ScrollProgress from "./scroll-progress";
 import ThemeToggle from "./theme-toggle";
+import { cn } from "@/lib/utils";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,11 +28,11 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/80 dark:bg-background/80 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
-      }`}
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent",
+        (isScrolled || isOpen) &&
+          "bg-background/80 dark:bg-background/80 backdrop-blur-md border-b border-border"
+      )}
     >
       <ScrollProgress />
 
@@ -42,8 +43,8 @@ export default function Navigation() {
             href="/"
             className="flex items-center  font-display font-bold text-xl"
           >
-            <span className="hidden sm:inline ">Anas</span>
-            <span className=" font-bold text-accent">.dev</span>
+            <span>Anas</span>
+            <span className="text-accent">.dev</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -76,7 +77,7 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2 animate-slide-in">
+          <div className="md:hidden pb-4 space-y-2 animate-in slide-in-from-bottom-15 fade-in duration-400">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
