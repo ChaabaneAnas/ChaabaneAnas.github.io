@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import CountUp from "./Countup";
 import Link from "next/link";
+import { ArrowDown, ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -39,8 +40,12 @@ export default function Hero() {
               <Button
                 size="lg"
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold group"
+                asChild
               >
-                See latest project →
+                <Link href="#work">
+                  <span>See latest project</span>
+                  <ArrowRight />{" "}
+                </Link>
               </Button>
               <Button variant="outline" size="lg" className="" asChild>
                 <Link
@@ -49,7 +54,8 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  ⬇ Download résumé
+                  <span>Download résumé</span>
+                  <ArrowDown />
                 </Link>
               </Button>
             </div>
