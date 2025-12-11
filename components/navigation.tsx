@@ -42,8 +42,8 @@ export default function Navigation() {
             href="/"
             className="flex items-center  font-display font-bold text-xl"
           >
-            <span className="hidden sm:inline ">Anas</span>
-            <span className=" font-bold text-accent">.dev</span>
+            <span>Anas</span>
+            <span className="text-accent">.dev</span>
           </Link>
 
           {/* Desktop Navigation */}
