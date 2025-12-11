@@ -23,7 +23,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
-          <div className="animate-slide-in space-y-8">
+          <div className="animate-in fade-in slide-in-from-bottom-20 ease-in duration-500 space-y-8">
             <div className="space-y-4">
               <h1 className="font-display text-5xl md:text-7xl font-bold tracking-tight text-balance">
                 Build. Deploy.
