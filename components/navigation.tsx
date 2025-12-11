@@ -5,6 +5,7 @@ import Link from "next/link";
 import ScrollProgress from "./scroll-progress";
 import ThemeToggle from "./theme-toggle";
 import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,14 +71,14 @@ export default function Navigation() {
               className="md:hidden text-foreground p-2"
               aria-label="Toggle menu"
             >
-              {isOpen ? "✕" : "≡"}
+              {isOpen ? <X /> : <Menu />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2 animate-in slide-in-from-bottom-15 fade-in duration-400">
+          <div className="md:hidden pb-4 space-y-2 animate-in slide-in-from-bottom-15 fade-in duration-400 ">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
