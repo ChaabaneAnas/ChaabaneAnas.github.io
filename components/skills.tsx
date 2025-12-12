@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 interface Skill {
-  name: string
-  category: string
+  name: string;
+  category: string;
 }
 
 const skills: Skill[] = [
@@ -16,13 +16,16 @@ const skills: Skill[] = [
   { name: "AWS", category: "Tools" },
   { name: "Git & GitHub", category: "Tools" },
   { name: "Docker", category: "Tools" },
-]
+];
 
 export default function Skills() {
-  const categories = Array.from(new Set(skills.map((s) => s.category)))
+  const categories = Array.from(new Set(skills.map((s) => s.category)));
 
   return (
-    <section id="skills" className="relative py-20 px-4 sm:px-6 lg:px-8">
+    <section
+      id="skills"
+      className="relative py-16 lg:py-20 px-4 sm:px-6 lg:px-8"
+    >
       <div className="max-w-7xl mx-auto">
         <h2 className="font-display text-4xl font-bold mb-12">
           Technical <span className="text-accent">Stack</span>
@@ -31,7 +34,9 @@ export default function Skills() {
         <div className="space-y-10">
           {categories.map((category) => (
             <div key={category}>
-              <h3 className="text-sm font-bold text-accent/80 uppercase tracking-widest mb-4">{category}</h3>
+              <h3 className="text-sm font-bold text-accent/80 uppercase tracking-widest mb-4">
+                {category}
+              </h3>
               <div className="flex flex-wrap gap-3">
                 {skills
                   .filter((s) => s.category === category)
@@ -49,5 +54,5 @@ export default function Skills() {
         </div>
       </div>
     </section>
-  )
+  );
 }
