@@ -11,8 +11,8 @@ export default function Hero() {
       <div className="absolute inset-0 bg-linear-to-b from-accent/10 via-background to-background pointer-events-none" />
 
       {/* Subtle animated code terminal graphic */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-50 dark:opacity-60 pointer-events-none">
-        <div className="font-mono text-xs text-accent space-y-1 hidden md:block">
+      <div className=" hidden xl:block absolute right-0 top-1/2 -translate-y-1/2 opacity-50 dark:opacity-60 pointer-events-none">
+        <div className="font-mono text-xs text-accent space-y-1 ">
           <div>$ npm run build</div>
           <div className="text-accent/60">&gt; Building project...</div>
           <div className="text-accent/40">Compiling components...</div>
@@ -88,7 +88,7 @@ export default function Hero() {
 
           {/* Right Column - Visual */}
           <div className="hidden md:block relative h-96">
-            <div className="absolute inset-0 bg-linear-to-br from-accent/20 via-accent/5 to-transparent rounded-2xl blur-3xl" />
+            <div className="absolute inset-0 bg-linear-to-br from-accent/40 via-accent/20 to-transparent  dark:from-accent/20 dark:via-accent/5 rounded-2xl blur-3xl" />
             <div className="relative glass rounded-2xl p-8 h-full flex items-center justify-center border border-accent/20">
               <div className="text-center space-y-4">
                 <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-accent/20 border border-accent/50">

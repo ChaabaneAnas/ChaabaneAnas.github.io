@@ -180,7 +180,7 @@
   }
 
   .glass {
-    @apply backdrop-blur-md bg-white/10 dark:bg-white/5;
+    @apply backdrop-blur-3xl dark:backdrop-blur-md bg-white/10 dark:bg-white/5;
   }
 
   .text-balance {

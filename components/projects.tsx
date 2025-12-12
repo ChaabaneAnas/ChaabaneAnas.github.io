@@ -28,13 +28,19 @@ interface Project {
 const projects: Project[] = [
   {
     id: "1",
-    title: "Analytics Dashboard",
-    description: "Real-time analytics platform with 200k+ daily requests",
+    title: "Dieture Website",
+    description: "The Official Website for Dieture",
     summary:
-      "Built a scalable analytics dashboard using Next.js and PostgreSQL",
-    outcome: "Reduced load time by 35%, handled 200k requests/day",
-    tech: ["React", "TypeScript", "PostgreSQL", "Redis"],
-    image: "/dieture-web.png",
+      "Built the official responsive, SEO-optimized website for Dieture, a compmany with more than 10 000 active users, where customer are able to browse and purchase products,",
+    outcome: "Increased online sales by 30% within first quarter post-launch",
+    tech: [
+      "NextJs",
+      "TypeScript",
+      "TailwindCss",
+      "Framer Motion",
+      "Contentful",
+    ],
+    image: "/diturecover.png",
   },
   {
     id: "2",
@@ -60,8 +66,6 @@ const projects: Project[] = [
 ];
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
   return (
     <section
       id="work"
@@ -76,15 +80,15 @@ export default function Projects() {
         <div className="grid md:grid-cols-3 gap-8">
           {projects.map((project) => (
             <Dialog key={project.id}>
-              <DialogTrigger className="pointer-cursor">
-                <div className="relative overflow-hidden rounded-xl mb-4 h-48 bg-muted">
+              <DialogTrigger className="pointer-cursor group">
+                <div className="relative overflow-hidden rounded-xl mb-4 h-48 bg-muted ">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
                 <h3 className="font-bold text-lg mb-2 group-hover:text-accent transition-colors">
                   {project.title}
@@ -104,6 +108,14 @@ export default function Projects() {
                 </div>
               </DialogTrigger>
               <DialogContent className="sm:max-w-2xl">
+                <div className="h-96 relative">
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    fill
+                    className="rounded-md mb-4 object-cover w-full"
+                  />
+                </div>
                 <DialogHeader>
                   <DialogTitle>{project.title}</DialogTitle>
                   <DialogDescription>{project.summary}</DialogDescription>
