@@ -88,7 +88,7 @@ export default function Hero() {
 
           {/* Right Column - Visual */}
           <div className="hidden md:block relative h-96">
-            <div className="absolute inset-0 bg-linear-to-br from-accent/20 via-accent/5 to-transparent rounded-2xl blur-3xl" />
+            <div className="absolute inset-0 bg-linear-to-br from-accent/40 via-accent/20 to-transparent  dark:from-accent/20 dark:via-accent/5 rounded-2xl blur-3xl" />
             <div className="relative glass rounded-2xl p-8 h-full flex items-center justify-center border border-accent/20">
               <div className="text-center space-y-4">
                 <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-accent/20 border border-accent/50">
