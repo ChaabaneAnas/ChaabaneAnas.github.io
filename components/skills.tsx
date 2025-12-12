@@ -34,7 +34,7 @@ export default function Skills() {
         <div className="space-y-10">
           {categories.map((category) => (
             <div key={category}>
-              <h3 className="text-sm font-bold text-accent/80 uppercase tracking-widest mb-4">
+              <h3 className="text-md font-bold text-accent/90 uppercase tracking-widest mb-4">
                 {category}
               </h3>
               <div className="flex flex-wrap gap-3">
