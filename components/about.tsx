@@ -3,7 +3,7 @@
 export default function About() {
   const facts = [
     { label: "Location", value: "Sousse, TN" },
-    { label: "Experience", value: "3+ years" },
+    { label: "Experience", value: "3+ Years" },
     { label: "Focus", value: "React, TypeScript, Node.js" },
   ];
 
