@@ -20,7 +20,7 @@ export default function ScrollProgress() {
 
   return (
     <div
-      className="fixed top-0 left-0 h-1 bg-gradient-to-r from-accent via-accent to-accent/50 z-50 transition-all duration-300"
+      className="fixed top-0 left-0 h-1 bg-linear-to-r from-accent via-accent to-accent/50 z-50 transition-all duration-300"
       aria-label="Scroll Progress"
       style={{ width: `${progress}%` }}
       role="progressbar"
