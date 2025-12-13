@@ -41,6 +41,7 @@ const projects: Project[] = [
       "TypeScript",
       "Tailwind CSS",
       "Radix UI",
+      "Zustand",
       "Contentful",
       "MoEngage",
       "Meta Marketing Tools",
@@ -59,16 +60,39 @@ const projects: Project[] = [
       "Centralized pallet and mission management, reduced manual reconciliation, improved issue resolution workflow, and increased operational visibility across retailers and drivers.",
     tech: [
       "React",
-      "Next.js",
       "TypeScript",
       "Tailwind CSS",
+      "Zustand",
       "Radix UI",
       "REST APIs",
       "Internationalization (i18n)",
       "Push Notifications",
     ],
-    thumb: "/paletteflow.png",
-    image: "/paletteflow.png",
+    thumb: "/palettefloww.png",
+    image: "/palettefloww.png",
+  },
+  {
+    id: "3",
+    title: "Dieture Internal Operations Dashboard",
+    description:
+      "Custom-built ERP and CRM platform powering Dieture’s end-to-end operations",
+    summary:
+      "Designed and developed a large-scale internal dashboard for Dieture to manage and monitor all operational modules from a single platform. The system functions as a custom ERP and CRM, providing full visibility and control over subscriptions, customer progress and history, deliveries, packing, kitchen workflows, B2B retailers, and internal data collection such as complaints and feedback. Key features include custom delivery coverage mapping, advanced theming and configuration, detailed logging, and real-time operational insights, enabling teams across departments to collaborate efficiently and make data-driven decisions.",
+    outcome:
+      "Replaced multiple manual tools with a unified internal platform, significantly improving operational efficiency, data accuracy, and cross-team visibility while supporting the company’s growth to over 10,000 active users.",
+    tech: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Radix UI",
+      "Zustand",
+      "Map & Geospatial Tools",
+      "Role-Based Access Control",
+      "Custom Theming System",
+      "Analytics & Logging",
+    ],
+    thumb: "/dieture_dashboard.png",
+    image: "/dieture_dashboard.png",
   },
 ];
 

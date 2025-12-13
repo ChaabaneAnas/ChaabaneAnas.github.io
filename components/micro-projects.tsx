@@ -9,11 +9,6 @@ interface MicroProject {
 
 const projects: MicroProject[] = [
   {
-    title: "Dieture Dashboard ",
-    description: "Admin dashboard for managing Dieture's operations",
-    tech: "React, TypeScript, NestJS, MongoDB",
-  },
-  {
     title: "Dieture Kitchen App Backend",
     description: "Meal management app for Dieture's kitchen staff",
     tech: "NestJS, MongoDB, ",
@@ -22,6 +17,11 @@ const projects: MicroProject[] = [
     title: "Dieture Driver App Backend",
     description: "Delivery management app for Dieture's drivers",
     tech: "NestJS, MongoDB,",
+  },
+  {
+    title: "Prestige Finder ",
+    description: "Online marketplace for luxury items",
+    tech: "NextJs, TypeScript, Radix UI, Tailwind CSS",
   },
   {
     title: "Enr Agri App",
