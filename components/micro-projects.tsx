@@ -9,34 +9,35 @@ interface MicroProject {
 
 const projects: MicroProject[] = [
   {
-    title: "CLI Tool",
-    description: "Command-line utility for project scaffolding",
-    tech: "Node.js",
+    title: "Dieture Dashboard ",
+    description: "Admin dashboard for managing Dieture's operations",
+    tech: "React, TypeScript, NestJS, MongoDB",
   },
   {
-    title: "Icon Pack",
-    description: "200+ optimized SVG icons",
-    tech: "SVG",
+    title: "Dieture Kitchen App Backend",
+    description: "Meal management app for Dieture's kitchen staff",
+    tech: "NestJS, MongoDB, ",
   },
   {
-    title: "Docs Site",
-    description: "API documentation generator",
-    tech: "Next.js",
+    title: "Dieture Driver App Backend",
+    description: "Delivery management app for Dieture's drivers",
+    tech: "NestJS, MongoDB,",
   },
   {
-    title: "VSCode Extension",
-    description: "Developer productivity plugin",
-    tech: "TypeScript",
+    title: "Enr Agri App",
+    description: "Mobile app for agricultural management and monitoring",
+    tech: "React Native, TypeScript,",
   },
   {
-    title: "Browser Extension",
-    description: "Web development helper tool",
-    tech: "React",
+    title: "Custom Multi-Select Component",
+    description:
+      "Accessible and customizable multi-select dropdown component built with React and TypeScript",
+    tech: "React, TypeScript",
   },
   {
-    title: "Slack Bot",
-    description: "Team productivity automation",
-    tech: "Node.js",
+    title: "Budget Tracker",
+    description: "Track your expenses and manage your budget effectively",
+    tech: "Ruby on Rails, PostgreSQL",
   },
 ];
 
