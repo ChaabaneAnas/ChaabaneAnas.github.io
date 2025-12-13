@@ -22,46 +22,53 @@ interface Project {
   summary: string;
   outcome: string;
   tech: string[];
+  thumb: string;
   image: string;
 }
 
 const projects: Project[] = [
   {
     id: "1",
-    title: "Dieture Website",
-    description: "The Official Website for Dieture",
+    title: "Dieture Official Website",
+    description:
+      "Responsive and feature-rich website for Qatar's leading healthy meal subscription service",
     summary:
-      "Built the official responsive, SEO-optimized website for Dieture, a compmany with more than 10 000 active users, where customer are able to browse and purchase products,",
-    outcome: "Increased online sales by 30% within first quarter post-launch",
+      "Developed the official website for Dieture, a Qatari health-focused meal subscription company with over 10,000 active users. The website allows customers to explore meal plans, book appointments with dietitians, purchase addons, manage subscriptions, and onboard seamlessly. Integrated marketing tools, headless CMS, and event tracking to create a full-featured, responsive, and interactive platform.",
+    outcome:
+      "Improved user engagement and boosted subscription conversions, contributing to a 30% increase in online sales within the first quarter post-launch.",
     tech: [
-      "NextJs",
+      "Next.js",
       "TypeScript",
-      "TailwindCss",
-      "Framer Motion",
+      "Tailwind CSS",
+      "Radix UI",
       "Contentful",
+      "MoEngage",
+      "Meta Marketing Tools",
     ],
-    image: "/diturecover.png",
+    thumb: "dieture.png",
+    image: "/dieture.png",
   },
   {
     id: "2",
-    title: "Design System",
+    title: "PaletteFlow Platform",
     description:
-      "Component library serving 50+ products across the organization",
+      "End-to-end logistics and pallet management platform for retailers, drivers, and administrators",
     summary:
-      "Created comprehensive design system with 100+ reusable components",
-    outcome: "Increased development velocity by 40%, improved consistency",
-    tech: ["React", "Storybook", "TypeScript", "Tailwind"],
-    image: "/placeholder.svg?key=uscm3",
-  },
-  {
-    id: "3",
-    title: "E-Commerce Platform",
-    description:
-      "Full-stack marketplace with payment integration and inventory management",
-    summary: "Developed complete e-commerce solution with real-time inventory",
-    outcome: "Processed $2M in transactions, 99.9% uptime",
-    tech: ["Next.js", "Stripe", "MongoDB", "AWS"],
-    image: "/placeholder.svg?key=tpwf6",
+      "Built PaletteFlow as a freelance project for a French logistics company to streamline pallet tracking and delivery operations between retailers. The platform is composed of three interconnected applications: a retailer app for tracking missions, managing owed and owned pallets, and reporting issues; a driver app for viewing missions, recording deliveries, scanning pallets, updating mission statuses, and managing issues; and an admin dashboard that provides full system control, including user management, mission creation and assignment, issue resolution, and pallet reconciliation. The system supports multilingual interfaces, real-time notifications, and a polished, role-based user experience across all applications.",
+    outcome:
+      "Centralized pallet and mission management, reduced manual reconciliation, improved issue resolution workflow, and increased operational visibility across retailers and drivers.",
+    tech: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Radix UI",
+      "REST APIs",
+      "Internationalization (i18n)",
+      "Push Notifications",
+    ],
+    thumb: "/paletteflow.png",
+    image: "/paletteflow.png",
   },
 ];
 
@@ -108,7 +115,7 @@ export default function Projects() {
                 </div>
               </DialogTrigger>
               <DialogContent className="sm:max-w-2xl">
-                <div className="h-96 relative">
+                <div className="h-70 relative">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
