@@ -6,7 +6,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Github, Gitlab, Linkedin, Mail } from "lucide-react";
-
+import { toast } from "sonner";
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -28,6 +28,7 @@ export default function Contact() {
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setIsSubmitting(false);
+    toast.success("Message sent successfully!");
     setFormData({ name: "", email: "", message: "" });
   };
 
