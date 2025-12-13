@@ -1,36 +1,47 @@
 "use client";
 
-import type React from "react";
-
-import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Github, Gitlab, Linkedin, Mail } from "lucide-react";
+import { Github, Gitlab, Linkedin, Loader2Icon, Mail } from "lucide-react";
 import { toast } from "sonner";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
+import { Input } from "./ui/input";
+import { Spinner } from "./ui/spinner";
+import { Textarea } from "./ui/textarea";
+
+const formSchema = z.object({
+  name: z.string().min(2, {
+    message: "Name must be at least 2 characters.",
+  }),
+  email: z.string().email({
+    message: "Please enter a valid email address.",
+  }),
+  message: z.string().min(10, {
+    message: "Message must be at least 10 characters.",
+  }),
+});
+
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    toast.success("Message sent successfully!");
-    setFormData({ name: "", email: "", message: "" });
-  };
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    try {
+      toast.success("Message sent successfully!");
+      console.log(values);
+    } catch (error) {}
+  }
 
   const socialLinks = [
     {
@@ -66,48 +77,73 @@ export default function Contact() {
           {/* Contact Form */}
           <div className="space-y-4">
             <h3 className="font-bold text-lg mb-6">Send me a message</h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-card/50 text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
-                  required
-                />
-              </div>
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="your@email.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-card/50 text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
-                  required
-                />
-              </div>
-              <div>
-                <textarea
-                  name="message"
-                  placeholder="Your message..."
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-card/50 text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all resize-none"
-                  required
-                />
-              </div>
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-4"
               >
-                {isSubmitting ? "Sending..." : "Send Message ↓"}
-              </Button>
-            </form>
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input
+                          className="w-full h-auto px-4 py-3 rounded-lg border border-border bg-card/50 text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
+                          placeholder="Your name"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input
+                          className="w-full h-auto px-4 py-3 rounded-lg border border-border bg-card/50 text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
+                          placeholder="Your Email"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />{" "}
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Textarea
+                          className="w-full h-auto px-4 py-3 rounded-lg border border-border bg-card/50 text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all resize-none"
+                          placeholder="Your Message"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button
+                  type="submit"
+                  disabled={form?.formState?.isSubmitting}
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+                >
+                  {form.formState.isSubmitting && (
+                    <Spinner className="mr-2 size-5 text-accent-foreground" />
+                  )}
+                  {form?.formState?.isSubmitting
+                    ? "Sending..."
+                    : "Send Message ↓"}
+                </Button>
+              </form>
+            </Form>
           </div>
 
           {/* Social Links */}
