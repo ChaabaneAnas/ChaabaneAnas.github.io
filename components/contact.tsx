@@ -11,6 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";
 import { Spinner } from "./ui/spinner";
 import { Textarea } from "./ui/textarea";
+import emailjs from "@emailjs/browser";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -35,12 +36,16 @@ export default function Contact() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     try {
+      emailjs.send("service_jabsdel", "template_coolily", values, {
+        publicKey: "F5oWX_nSO7KgY3PZd",
+      });
       toast.success("Message sent successfully!");
-      console.log(values);
-    } catch (error) {}
+      form.reset();
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast.error("Failed to send message. Please try again .");
+    }
   }
 
   const socialLinks = [
