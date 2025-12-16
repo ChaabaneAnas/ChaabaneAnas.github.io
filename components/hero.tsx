@@ -6,7 +6,7 @@ import { ArrowDown, ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center pt-20  overflow-hidden">
+    <section className="relative min-h-screen w-full flex items-center justify-center pt-12 lg:pt-20  overflow-hidden">
       {/* Background gradient accent */}
       <div className="absolute inset-0 bg-linear-to-b from-accent/10 via-background to-background pointer-events-none" />
 
