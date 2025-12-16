@@ -20,13 +20,15 @@ export default function About() {
               About <span className="text-accent">me</span>
             </h2>
             <p className="text-foreground/80 leading-relaxed text-lg">
-              Results-driven Full Stack Developer with 3 years of experience
-              building high-performance web applications. Specialized in React
-              ecosystem (React, Next.js, TypeScript) and modern backend
-              technologies (Node.js, NestJS, GraphQL). Demonstrated success in
-              optimizing application performance and delivering exceptional user
-              experiences. Passionate about clean code and staying current with
-              emerging technologies
+              Results-driven Full Stack Developer with 3+ years of experience in
+              Production environments.
+              <br /> I specialize in the JavaScript/TypeScript ecosystem (React,
+              Next.js) for the front-end and (Node.js, NestJS) for the backend.
+              <br />
+              <br />
+              Demonstrated success in optimizing application performance and
+              delivering exceptional user experiences. <br /> Passionate about
+              clean code and staying current with emerging technologies.
             </p>
           </div>
 
