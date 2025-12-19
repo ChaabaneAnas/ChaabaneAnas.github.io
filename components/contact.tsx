@@ -54,12 +54,12 @@ export default function Contact() {
       href: "https://www.linkedin.com/in/chaabaneanas/",
       label: "LinkedIn",
     },
-    { icon: Github, href: "https://github.com/ChaabaneAnas", label: "GitHub" },
     {
       icon: Gitlab,
       href: "https://gitlab.com/anas.chaabane98",
       label: "GitLab",
     },
+    { icon: Github, href: "https://github.com/ChaabaneAnas", label: "GitHub" },
 
     { icon: Mail, href: "mailto:anas.chaabane98@gmail.com", label: "Email" },
   ];
