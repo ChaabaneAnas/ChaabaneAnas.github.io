@@ -43,7 +43,6 @@ Common edits:
 | **A project's live site / repo link** | **`src/content/links.ts`** — one entry per slug, language-neutral. Omit a field and no link renders |
 | Skills | `stack.groups` |
 | Contact details, social links | `src/lib/site.ts` |
-| Hide a repo from the GitHub feed | `HIDDEN_REPOS` in `src/components/sections/GitHubActivity.tsx` |
 
 Adding a project is a single object in **both** `work.projects` arrays; the route
 `/work/<slug>/` and its French twin are generated from the slug automatically.
@@ -89,7 +88,7 @@ src/
     sitemap.ts robots.ts
   components/
     layout/         Header, Footer, Chrome, ScrollProgress, SkipLink
-    sections/       Hero, SelectedWork, Experience, StackGrid, GitHubActivity, About, Contact
+    sections/       Hero, SelectedWork, Experience, StackGrid, About, Contact
     ui/             Section, Reveal, Chip, MonoLabel, ActionLink, CopyButton, Icons
   content/          en.ts, fr.ts, types.ts
   lib/              site.ts, routes.ts, metadata.ts, cn.ts
@@ -110,6 +109,4 @@ cannot vary that attribute.
   (`animation-fill-mode: both`) and scroll reveals are hidden only under
   `html.js`, a class set by an inline script. With JS off, the page renders in full.
 - `prefers-reduced-motion` collapses every animation to its final frame.
-- The GitHub section fetches live from the public API and unmounts itself on any
-  error or rate limit, so it can never render a broken state.
 - Colour pairs clear WCAG AA; focus rings are visible and the whole page is keyboard-navigable.

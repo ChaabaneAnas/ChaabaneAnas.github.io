@@ -530,16 +530,6 @@ export const fr: Content = {
       "À l'aise pour porter une fonctionnalité du modèle de données au détail d'interaction — et tout aussi à l'aise pour être la personne qui relit la vôtre.",
   },
 
-  github: {
-    label: "Open source",
-    title: "Dernières activités GitHub",
-    intro: "Dépôts publics récemment mis à jour, récupérés en direct.",
-    updated: "Mis à jour",
-    viewProfile: "Voir le profil complet",
-    empty:
-      "Les dépôts mettent un instant à charger — le lien vers le profil fonctionne toujours.",
-    stars: "étoiles",
-  },
 
   about: {
     label: "À propos",

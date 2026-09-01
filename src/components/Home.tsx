@@ -2,7 +2,6 @@ import { Hero } from "@/components/sections/Hero";
 import { SelectedWork } from "@/components/sections/SelectedWork";
 import { Experience } from "@/components/sections/Experience";
 import { StackGrid } from "@/components/sections/StackGrid";
-import { GitHubActivity } from "@/components/sections/GitHubActivity";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
 import { Section } from "@/components/ui/Section";
@@ -55,11 +54,9 @@ export function Home({ lang }: { lang: Lang }) {
         <About content={content} />
       </Section>
 
-      <GitHubActivity lang={lang} content={content} />
-
       <Section
         id="contact"
-        index="06"
+        index="05"
         label={content.contact.label}
         title={content.contact.title}
       >

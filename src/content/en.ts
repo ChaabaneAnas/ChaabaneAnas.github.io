@@ -530,16 +530,6 @@ export const en: Content = {
       "Comfortable owning a feature from data model to interaction detail — and equally comfortable being the person who reviews yours.",
   },
 
-  github: {
-    label: "Open source",
-    title: "Latest from GitHub",
-    intro: "Recently updated public repositories, pulled live.",
-    updated: "Updated",
-    viewProfile: "View full profile",
-    empty:
-      "Repositories are taking a moment to load — the profile link below always works.",
-    stars: "stars",
-  },
 
   about: {
     label: "About",

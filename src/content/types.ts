@@ -130,15 +130,6 @@ export interface Content {
     groups: StackGroup[];
     note: string;
   };
-  github: {
-    label: string;
-    title: string;
-    intro: string;
-    updated: string;
-    viewProfile: string;
-    empty: string;
-    stars: string;
-  };
   about: {
     label: string;
     title: string;
