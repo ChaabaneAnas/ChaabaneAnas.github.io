@@ -129,6 +129,57 @@ export const en: Content = {
         },
       },
       {
+        slug: "mnadhem",
+        name: "Mnadhem",
+        tagline: "An operations hub built for how Tunisian retail actually works",
+        category: "Product · Founder and engineer",
+        period: "2026 — Present",
+        role: "Full Stack Developer",
+        summary:
+          "Internal operations, cash-flow tracking and inventory for small and mid-sized Tunisian retail, fashion and D2C brands — designed around cash, informal suppliers and multi-channel selling.",
+        stack: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Prisma", "Tailwind CSS"],
+        // Paste the app URL to show a "Visit" link on the card and case study:
+        // links: { live: "https://example.com" },
+        study: {
+          lead:
+            "Most inventory software assumes a business that banks everything, buys from invoiced suppliers, and sells through one channel. A large share of Tunisian retail does none of those three. Mnadhem is built for the business that actually exists.",
+          sections: [
+            {
+              heading: "The problem",
+              body: [
+                "Small and mid-sized retail, fashion and direct-to-consumer brands here run on a spreadsheet, a notebook and a group chat. Stock lives in one place, cash in another, and the reconciliation between them happens in someone's head at the end of the week — which is exactly when it is too late to act on.",
+                "Imported tools fail for structural reasons, not cosmetic ones. They assume card payments, invoiced suppliers, a single sales channel, and a tax model that does not match. The gap is not translation. It is the data model.",
+              ],
+            },
+            {
+              heading: "Approach",
+              body: [
+                "I started from the cash ledger rather than the product catalogue. Every movement — a sale, a supplier payment, a return, a delivery fee, an owner withdrawal — is an entry against an account, and inventory movement is derived from it. That inversion is what makes the numbers reconcile without a weekly ritual.",
+                "The interface is built for speed of entry over completeness of data. Recording a sale takes one screen and no required fields beyond the ones that affect money, because a tool slower than the notebook simply does not get used.",
+              ],
+              list: [
+                "Double-entry cash ledger as the source of truth, with inventory as a projection over it",
+                "Multi-channel sales capture: shop floor, social DMs, delivery partners",
+                "Supplier accounts that tolerate partial, informal and out-of-order payment",
+                "Role-scoped access so an owner, a shop manager and a stockkeeper each get one surface",
+              ],
+            },
+            {
+              heading: "Architecture",
+              body: [
+                "Next.js App Router on the front with server components on every read path, so list views ship almost no client JavaScript. NestJS behind it with a module per domain — ledger, inventory, catalogue, identity — and PostgreSQL underneath, with the ledger tables append-only.",
+                "Append-only was a deliberate constraint. A corrected mistake becomes a reversing entry rather than an edit, so the history behind a disputed number is always recoverable. In a cash business, that is the feature.",
+              ],
+            },
+          ],
+          outcome: [
+            "In active development and use, with the data model validated against real shop workflows rather than assumptions",
+            "Owner dashboard answers the two questions that matter daily: what is on hand, and what is owed",
+            "Built as a product I own end to end — research, data modelling, API, interface and rollout",
+          ],
+        },
+      },
+      {
         slug: "dieture-platform",
         name: "Dieture Operations Platform",
         tagline: "The software that runs a meal-subscription business end to end",
@@ -269,57 +320,7 @@ export const en: Content = {
           ],
         },
       },
-      {
-        slug: "mnadhem",
-        name: "Mnadhem",
-        tagline: "An operations hub built for how Tunisian retail actually works",
-        category: "Product · Founder and engineer",
-        period: "2026 — Present",
-        role: "Full Stack Developer",
-        summary:
-          "Internal operations, cash-flow tracking and inventory for small and mid-sized Tunisian retail, fashion and D2C brands — designed around cash, informal suppliers and multi-channel selling.",
-        stack: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Prisma", "Tailwind CSS"],
-        // Paste the app URL to show a "Visit" link on the card and case study:
-        // links: { live: "https://example.com" },
-        study: {
-          lead:
-            "Most inventory software assumes a business that banks everything, buys from invoiced suppliers, and sells through one channel. A large share of Tunisian retail does none of those three. Mnadhem is built for the business that actually exists.",
-          sections: [
-            {
-              heading: "The problem",
-              body: [
-                "Small and mid-sized retail, fashion and direct-to-consumer brands here run on a spreadsheet, a notebook and a group chat. Stock lives in one place, cash in another, and the reconciliation between them happens in someone's head at the end of the week — which is exactly when it is too late to act on.",
-                "Imported tools fail for structural reasons, not cosmetic ones. They assume card payments, invoiced suppliers, a single sales channel, and a tax model that does not match. The gap is not translation. It is the data model.",
-              ],
-            },
-            {
-              heading: "Approach",
-              body: [
-                "I started from the cash ledger rather than the product catalogue. Every movement — a sale, a supplier payment, a return, a delivery fee, an owner withdrawal — is an entry against an account, and inventory movement is derived from it. That inversion is what makes the numbers reconcile without a weekly ritual.",
-                "The interface is built for speed of entry over completeness of data. Recording a sale takes one screen and no required fields beyond the ones that affect money, because a tool slower than the notebook simply does not get used.",
-              ],
-              list: [
-                "Double-entry cash ledger as the source of truth, with inventory as a projection over it",
-                "Multi-channel sales capture: shop floor, social DMs, delivery partners",
-                "Supplier accounts that tolerate partial, informal and out-of-order payment",
-                "Role-scoped access so an owner, a shop manager and a stockkeeper each get one surface",
-              ],
-            },
-            {
-              heading: "Architecture",
-              body: [
-                "Next.js App Router on the front with server components on every read path, so list views ship almost no client JavaScript. NestJS behind it with a module per domain — ledger, inventory, catalogue, identity — and PostgreSQL underneath, with the ledger tables append-only.",
-                "Append-only was a deliberate constraint. A corrected mistake becomes a reversing entry rather than an edit, so the history behind a disputed number is always recoverable. In a cash business, that is the feature.",
-              ],
-            },
-          ],
-          outcome: [
-            "In active development and use, with the data model validated against real shop workflows rather than assumptions",
-            "Owner dashboard answers the two questions that matter daily: what is on hand, and what is owed",
-            "Built as a product I own end to end — research, data modelling, API, interface and rollout",
-          ],
-        },
-      },
+
       {
         slug: "palletflow",
         name: "PalletFlow",

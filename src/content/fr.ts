@@ -129,6 +129,57 @@ export const fr: Content = {
         },
       },
       {
+        slug: "mnadhem",
+        name: "Mnadhem",
+        tagline: "Un hub d'opérations pensé pour le commerce tunisien réel",
+        category: "Produit · Fondateur et développeur",
+        period: "2026 — Aujourd'hui",
+        role: "Développeur Full Stack",
+        summary:
+          "Opérations internes, suivi de trésorerie et stock pour les commerces, marques de mode et D2C tunisiens de petite et moyenne taille — conçu autour du cash, des fournisseurs informels et de la vente multicanale.",
+        stack: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Prisma", "Tailwind CSS"],
+        // Collez l'URL de l'application pour afficher un lien « Voir » :
+        // links: { live: "https://example.com" },
+        study: {
+          lead:
+            "La plupart des logiciels de gestion de stock présupposent une entreprise qui bancarise tout, achète à des fournisseurs facturés et vend sur un seul canal. Une grande part du commerce tunisien ne coche aucune des trois cases. Mnadhem est construit pour l'entreprise qui existe vraiment.",
+          sections: [
+            {
+              heading: "Le problème",
+              body: [
+                "Ici, les commerces, marques de mode et enseignes en vente directe fonctionnent avec un tableur, un carnet et une conversation de groupe. Le stock vit d'un côté, la trésorerie de l'autre, et le rapprochement se fait dans la tête de quelqu'un en fin de semaine — c'est-à-dire précisément trop tard pour agir.",
+                "Les outils importés échouent pour des raisons structurelles, pas cosmétiques : ils supposent le paiement par carte, des fournisseurs facturés, un canal de vente unique et un modèle fiscal qui ne correspond pas. L'écart n'est pas une question de traduction, c'est le modèle de données.",
+              ],
+            },
+            {
+              heading: "L'approche",
+              body: [
+                "Je suis parti du registre de trésorerie plutôt que du catalogue produit. Chaque mouvement — une vente, un règlement fournisseur, un retour, des frais de livraison, un prélèvement du gérant — est une écriture sur un compte, et le mouvement de stock en découle. C'est cette inversion qui fait que les chiffres se rapprochent sans rituel hebdomadaire.",
+                "L'interface privilégie la vitesse de saisie sur l'exhaustivité. Enregistrer une vente tient sur un écran, sans champ obligatoire au-delà de ceux qui touchent à l'argent : un outil plus lent que le carnet n'est tout simplement pas utilisé.",
+              ],
+              list: [
+                "Registre de trésorerie en partie double comme source de vérité, le stock étant une projection dessus",
+                "Saisie multicanale : boutique, messages privés sur les réseaux, partenaires de livraison",
+                "Comptes fournisseurs tolérant les règlements partiels, informels et dans le désordre",
+                "Accès par rôle : gérant, responsable de boutique et magasinier ont chacun une seule surface",
+              ],
+            },
+            {
+              heading: "Architecture",
+              body: [
+                "Next.js App Router côté interface, avec des server components sur tous les chemins de lecture : les vues en liste n'embarquent presque aucun JavaScript client. NestJS derrière, un module par domaine — registre, stock, catalogue, identité — et PostgreSQL en dessous, avec des tables de registre en ajout seul.",
+                "L'ajout seul est une contrainte volontaire. Une erreur corrigée devient une écriture d'extourne plutôt qu'une modification : l'historique derrière un chiffre contesté reste toujours reconstituable. Dans un commerce au comptant, c'est la fonctionnalité principale.",
+              ],
+            },
+          ],
+          outcome: [
+            "En développement et en usage actifs, modèle de données validé sur de vrais flux de boutique plutôt que sur des hypothèses",
+            "Le tableau de bord répond aux deux questions qui comptent chaque jour : ce qui est en stock, et ce qui est dû",
+            "Un produit que je porte de bout en bout — recherche, modélisation, API, interface et déploiement",
+          ],
+        },
+      },
+      {
         slug: "dieture-platform",
         name: "Plateforme opérationnelle Dieture",
         tagline: "Le logiciel qui fait tourner une activité d'abonnement repas de bout en bout",
@@ -269,57 +320,7 @@ export const fr: Content = {
           ],
         },
       },
-      {
-        slug: "mnadhem",
-        name: "Mnadhem",
-        tagline: "Un hub d'opérations pensé pour le commerce tunisien réel",
-        category: "Produit · Fondateur et développeur",
-        period: "2026 — Aujourd'hui",
-        role: "Développeur Full Stack",
-        summary:
-          "Opérations internes, suivi de trésorerie et stock pour les commerces, marques de mode et D2C tunisiens de petite et moyenne taille — conçu autour du cash, des fournisseurs informels et de la vente multicanale.",
-        stack: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Prisma", "Tailwind CSS"],
-        // Collez l'URL de l'application pour afficher un lien « Voir » :
-        // links: { live: "https://example.com" },
-        study: {
-          lead:
-            "La plupart des logiciels de gestion de stock présupposent une entreprise qui bancarise tout, achète à des fournisseurs facturés et vend sur un seul canal. Une grande part du commerce tunisien ne coche aucune des trois cases. Mnadhem est construit pour l'entreprise qui existe vraiment.",
-          sections: [
-            {
-              heading: "Le problème",
-              body: [
-                "Ici, les commerces, marques de mode et enseignes en vente directe fonctionnent avec un tableur, un carnet et une conversation de groupe. Le stock vit d'un côté, la trésorerie de l'autre, et le rapprochement se fait dans la tête de quelqu'un en fin de semaine — c'est-à-dire précisément trop tard pour agir.",
-                "Les outils importés échouent pour des raisons structurelles, pas cosmétiques : ils supposent le paiement par carte, des fournisseurs facturés, un canal de vente unique et un modèle fiscal qui ne correspond pas. L'écart n'est pas une question de traduction, c'est le modèle de données.",
-              ],
-            },
-            {
-              heading: "L'approche",
-              body: [
-                "Je suis parti du registre de trésorerie plutôt que du catalogue produit. Chaque mouvement — une vente, un règlement fournisseur, un retour, des frais de livraison, un prélèvement du gérant — est une écriture sur un compte, et le mouvement de stock en découle. C'est cette inversion qui fait que les chiffres se rapprochent sans rituel hebdomadaire.",
-                "L'interface privilégie la vitesse de saisie sur l'exhaustivité. Enregistrer une vente tient sur un écran, sans champ obligatoire au-delà de ceux qui touchent à l'argent : un outil plus lent que le carnet n'est tout simplement pas utilisé.",
-              ],
-              list: [
-                "Registre de trésorerie en partie double comme source de vérité, le stock étant une projection dessus",
-                "Saisie multicanale : boutique, messages privés sur les réseaux, partenaires de livraison",
-                "Comptes fournisseurs tolérant les règlements partiels, informels et dans le désordre",
-                "Accès par rôle : gérant, responsable de boutique et magasinier ont chacun une seule surface",
-              ],
-            },
-            {
-              heading: "Architecture",
-              body: [
-                "Next.js App Router côté interface, avec des server components sur tous les chemins de lecture : les vues en liste n'embarquent presque aucun JavaScript client. NestJS derrière, un module par domaine — registre, stock, catalogue, identité — et PostgreSQL en dessous, avec des tables de registre en ajout seul.",
-                "L'ajout seul est une contrainte volontaire. Une erreur corrigée devient une écriture d'extourne plutôt qu'une modification : l'historique derrière un chiffre contesté reste toujours reconstituable. Dans un commerce au comptant, c'est la fonctionnalité principale.",
-              ],
-            },
-          ],
-          outcome: [
-            "En développement et en usage actifs, modèle de données validé sur de vrais flux de boutique plutôt que sur des hypothèses",
-            "Le tableau de bord répond aux deux questions qui comptent chaque jour : ce qui est en stock, et ce qui est dû",
-            "Un produit que je porte de bout en bout — recherche, modélisation, API, interface et déploiement",
-          ],
-        },
-      },
+
       {
         slug: "palletflow",
         name: "PalletFlow",
