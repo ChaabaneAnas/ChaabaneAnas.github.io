@@ -73,20 +73,20 @@ export const fr: Content = {
     all: "Tous les projets",
     projects: [
       {
-        slug: "bi-visualization-extensions",
-        index: "01",
-        name: "Extensions de visualisation BI",
-        tagline: "Des moteurs graphiques sur mesure dans Power BI et Qlik",
+        slug: "truechart",
+        name: "Truechart Plus",
+        tagline: "Des moteurs graphiques conformes IBCS dans Power BI et Qlik",
         category: "Data visualisation · Vayetek",
         period: "2026 — Aujourd'hui",
         role: "Lead Développeur Full Stack",
         summary:
-          "Des extensions de visualisation React et D3 exécutées à l'intérieur de Power BI et Qlik Sense, conçues pour des volumes de données où un rendu naïf fige l'application hôte.",
+          "Des extensions de visualisation React et D3 conformes IBCS, exécutées à l'intérieur de Power BI et Qlik Sense, conçues pour des volumes de données où un rendu naïf fige l'application hôte.",
         stack: ["React", "TypeScript", "D3.js", "API Power BI", "API Qlik Sense", "Rollup"],
-        featured: true,
+        // Collez l'URL du produit pour afficher un lien « Voir » :
+        // links: { live: "https://example.com" },
         study: {
           lead:
-            "Les plateformes de business intelligence arrivent avec une bibliothèque de graphiques figée. Quand un client a besoin d'un visuel absent de cette bibliothèque, il faut le construire — en bac à sable, dans le cycle de rendu de l'hôte, sur son modèle de données. C'est le travail que je dirige chez Vayetek.",
+            "Pensé pour fluidifier la visualisation de données et le travail d'équipe, TRUECHART renforce la clarté IBCS avec le commentaire en temps réel, un pivot souple et des fonctions de planification comme le splashing et les scénarios — analyse, collaboration et stratégie au même endroit.",
           sections: [
             {
               heading: "Le problème",
@@ -129,8 +129,148 @@ export const fr: Content = {
         },
       },
       {
+        slug: "dieture-platform",
+        name: "Plateforme opérationnelle Dieture",
+        tagline: "Le logiciel qui fait tourner une activité d'abonnement repas de bout en bout",
+        category: "Plateforme interne · Dieture",
+        period: "2023 — 2026",
+        role: "Développeur Full Stack",
+        summary:
+          "Un backend en microservices, trois applications métier et un backoffice ERP/CRM sur mesure pilotant abonnements, cuisine, préparation, livraison et B2B pour plus de 10 000 clients actifs.",
+        stack: [
+          "React",
+          "TypeScript",
+          "Node.js",
+          "NestJS",
+          "Microservices",
+          "PostgreSQL",
+          "GraphQL",
+        ],
+        // Système interne — pas de lien public, volontairement.
+        study: {
+          lead:
+            "Dieture n'externalise pas le plus difficile. L'entreprise possède sa cuisine, sa chaîne de conditionnement et ses livreurs : un abonnement n'est donc pas une transaction qui s'arrête au paiement, c'est un repas qu'il faut cuisiner, conditionner, router et livrer, chaque jour, pour des milliers de clients à la fois. Le logiciel qui coordonne tout cela, c'est ce que j'ai construit pendant trois ans.",
+          sections: [
+            {
+              heading: "Le problème",
+              body: [
+                "Une opération qui couvre une cuisine, une chaîne de conditionnement, une flotte de livraison et un support produit la même information quatre fois, à quatre endroits. Avant la plateforme, chacun de ces maillons tournait sur son propre outil — tableurs, fils de discussion, feuilles imprimées — et aucun ne concordait avec les autres.",
+                "Le coût se voit aux questions auxquelles personne ne peut répondre vite : où en est cet abonnement dans le cycle du jour, pourquoi cette livraison a échoué, quelle quantité de cet ingrédient il faut pour demain. Au-delà de 10 000 clients actifs, les écarts entre outils ont cessé d'être une gêne pour devenir la limite à la croissance.",
+              ],
+            },
+            {
+              heading: "Le système",
+              body: [
+                "Un backend en microservices porte le domaine — abonnements, clients, menus, stock, livraisons — et chaque surface au-dessus n'est qu'un client fin, propre à un rôle, sur ce modèle unique. Aucune règle métier n'est réimplémentée dans une application.",
+                "Chaque application métier est volontairement étroite. Un chef en plein service, un préparateur sur la chaîne et un livreur avec son téléphone dans une main n'ont pas besoin du même écran, et aucun n'a besoin d'un écran généraliste. Chaque application répond à la seule question que son utilisateur se pose à cet instant.",
+              ],
+              list: [
+                "Application cuisine — les besoins de production par service, dérivés des données d'abonnement en direct vers ce qu'il faut réellement cuisiner",
+                "Application préparateur — la file de la chaîne de conditionnement, article par article, avec la vérification intégrée au flux",
+                "Application livreur — la tournée et les arrêts du jour, pensée pour un usage à une main en véhicule",
+                "Tableau de bord backoffice — la surface de contrôle sur l'ensemble",
+              ],
+            },
+            {
+              heading: "Le tableau de bord",
+              body: [
+                "C'est le tableau de bord qui a remplacé le plus d'outils. Un ERP et un CRM sur mesure en un : abonnements et historique complet, progression client, livraisons, conditionnement, flux de cuisine, comptes revendeurs B2B, et collecte interne des réclamations et retours — avec la configuration qui pilote toutes les autres applications de la plateforme.",
+                "Deux parties ont demandé le plus de travail. La couverture de livraison est modélisée en zones géographiques éditables plutôt qu'en liste de secteurs acceptés : les opérations redessinent ce qui est livrable sans développeur. Et chaque action significative écrit une entrée de journal structurée, ce qui a transformé le « pourquoi est-ce arrivé » d'une enquête en une requête.",
+              ],
+              list: [
+                "Cartographie de la couverture de livraison, éditable par l'équipe opérationnelle",
+                "Cycle de vie de l'abonnement — pauses, changements de formule, renouvellements et historique client sur une seule frise",
+                "Comptes revendeurs B2B aux côtés des abonnements grand public",
+                "Thématisation et configuration avancées, propagées jusqu'aux applications métier",
+                "Journalisation structurée détaillée et vision opérationnelle en temps réel",
+              ],
+            },
+            {
+              heading: "Ma part",
+              body: [
+                "J'ai fortement contribué au backend et porté de larges pans du tableau de bord pendant trois ans — les fonctionnalités complexes plutôt que les écrans : la cartographie de couverture, la couche de configuration, la gestion des états d'abonnement, et la journalisation qui a rendu le reste débogable.",
+                "Construire là où un bug a une conséquence physique change la manière de travailler. Un mauvais chiffre dans l'application cuisine, c'est de la nourriture perdue ; une mauvaise tournée, c'est un client qui ne mange pas ce jour-là. C'est la discipline que cette base de code m'a apprise.",
+              ],
+            },
+          ],
+          outcome: [
+            "Plusieurs outils manuels remplacés par une plateforme interne unique, utilisée par la cuisine, le conditionnement, la livraison, le support et la direction",
+            "Efficacité opérationnelle, exactitude des données et visibilité inter-équipes nettement améliorées",
+            "Croissance de l'entreprise au-delà de 10 000 utilisateurs actifs soutenue",
+            "Temps de réponse des API réduits de 30 % sur les services sur lesquels j'ai travaillé",
+          ],
+          metrics: [
+            { value: "10 000+", label: "Utilisateurs actifs servis" },
+            { value: "4", label: "Applications sur un backend" },
+            { value: "−30 %", label: "Temps de réponse API" },
+          ],
+        },
+      },
+      {
+        slug: "dieture-website",
+        name: "Site web Dieture",
+        tagline: "La porte d'entrée d'une activité d'abonnement à 10 000 clients",
+        category: "Produit · Dieture",
+        period: "2023 — 2026",
+        role: "Développeur Full Stack, équipe de trois",
+        summary:
+          "Le site officiel de Dieture — découverte des formules, prise de rendez-vous avec un diététicien, options, gestion de l'abonnement et onboarding, avec un CMS headless et le suivi du tunnel derrière. Construit sous ma conduite avec deux autres développeurs.",
+        stack: [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "GraphQL",
+          "CMS headless",
+        ],
+        links: { live: "https://dieture.com" },
+        study: {
+          lead:
+            "Un abonnement repas est un achat réfléchi. Le site doit expliquer un produit que les gens vont manger tous les jours, encaisser une inscription qui suppose de vrais choix, puis rester utile au client aussi longtemps qu'il est abonné. C'est à la fois une vitrine, un parcours d'onboarding et un espace client, et tout cela doit sembler ne faire qu'un.",
+          sections: [
+            {
+              heading: "Le problème",
+              body: [
+                "Vendre un abonnement n'est pas vendre un produit. Un visiteur doit comprendre les formules, faire confiance à la nutrition derrière, choisir ce qui correspond à ses objectifs, puis continuer à gérer ce choix bien après le premier achat — mettre en pause, changer de formule, ajouter des options, réserver un diététicien.",
+                "Faire tout cela sur un seul site implique que la surface marketing et la surface client ne peuvent pas être deux produits vissés l'un à l'autre — ce qui arrive toujours quand les pages que possède le marketing et les parcours que possède l'ingénierie commencent à diverger.",
+              ],
+            },
+            {
+              heading: "L'approche",
+              body: [
+                "J'ai mené la construction avec deux autres développeurs. Nous avons traité le contenu comme de la donnée dès le départ : formules, textes et pages de campagne viennent d'un CMS headless, si bien que le marketing modifie une offre ou lance une landing page sans déploiement et sans développeur dans la boucle.",
+                "Tout ce qui pèse sur la conversion est instrumenté. Le suivi d'événements parcourt tout le tunnel — vue d'une formule, sélection, étape d'onboarding, paiement — de sorte que « où décrochent les gens » trouve sa réponse dans les données plutôt que dans un avis en réunion.",
+              ],
+              list: [
+                "Découverte et comparaison des formules, pilotées par le contenu du CMS",
+                "Prise de rendez-vous avec un diététicien",
+                "Achat d'options et gestion de l'abonnement pour les clients existants",
+                "Onboarding de bout en bout, de la première visite à l'abonnement actif",
+                "Outils marketing et suivi d'événements du tunnel câblés sur tout le parcours",
+              ],
+            },
+            {
+              heading: "Trois développeurs, un seul front",
+              body: [
+                "À trois sur un même front-end, cela ne marche que si les frontières sont décidées avant le code. Nous avons découpé par parcours plutôt que par couche — découverte, onboarding, espace client — au-dessus d'une couche de composants et de données partagée : nous éditions rarement le même fichier à deux, et les coutures entre parcours restaient visibles en revue.",
+              ],
+            },
+          ],
+          outcome: [
+            "30 % de ventes en ligne supplémentaires au premier trimestre après le lancement",
+            "Engagement en hausse sur les parcours de découverte et d'onboarding",
+            "Le marketing publie textes, formules et pages de campagne sans déploiement",
+            "Sert une base de plus de 10 000 abonnés actifs",
+          ],
+          metrics: [
+            { value: "+30 %", label: "Ventes en ligne, 1er trimestre" },
+            { value: "10 000+", label: "Utilisateurs actifs" },
+            { value: "−25 %", label: "Temps de chargement" },
+          ],
+        },
+      },
+      {
         slug: "mnadhem",
-        index: "02",
         name: "Mnadhem",
         tagline: "Un hub d'opérations pensé pour le commerce tunisien réel",
         category: "Produit · Fondateur et développeur",
@@ -139,7 +279,8 @@ export const fr: Content = {
         summary:
           "Opérations internes, suivi de trésorerie et stock pour les commerces, marques de mode et D2C tunisiens de petite et moyenne taille — conçu autour du cash, des fournisseurs informels et de la vente multicanale.",
         stack: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Prisma", "Tailwind CSS"],
-        featured: true,
+        // Collez l'URL de l'application pour afficher un lien « Voir » :
+        // links: { live: "https://example.com" },
         study: {
           lead:
             "La plupart des logiciels de gestion de stock présupposent une entreprise qui bancarise tout, achète à des fournisseurs facturés et vend sur un seul canal. Une grande part du commerce tunisien ne coche aucune des trois cases. Mnadhem est construit pour l'entreprise qui existe vraiment.",
@@ -181,7 +322,6 @@ export const fr: Content = {
       },
       {
         slug: "palletflow",
-        index: "03",
         name: "PalletFlow",
         tagline: "Trois applications, une seule chaîne logistique",
         category: "Freelance · Logistique",
@@ -190,7 +330,8 @@ export const fr: Content = {
         summary:
           "Un tableau de bord admin, une application chauffeur et un portail partenaire sur un unique backend NestJS — stock, affectation des missions, livraison scannée par QR et suivi des incidents.",
         stack: ["React", "Radix UI", "Tailwind CSS", "NestJS", "TypeScript", "PostgreSQL"],
-        featured: true,
+        // Collez l'URL de l'application pour afficher un lien « Voir » :
+        // links: { live: "https://example.com" },
         study: {
           lead:
             "La logistique de palettes a trois publics qui n'ont presque rien en commun : l'exploitant qui affecte le travail, le chauffeur qui l'exécute sur un téléphone sur le terrain, et le partenaire qui veut seulement savoir où sont ses marchandises. PalletFlow est un seul système avec trois portes d'entrée délibérément différentes.",
@@ -235,76 +376,6 @@ export const fr: Content = {
           ],
         },
       },
-      {
-        slug: "trek-bike-rental",
-        index: "04",
-        name: "Trek Bike Rental",
-        tagline: "Réservation, disponibilité et authentification de bout en bout",
-        category: "Application full-stack",
-        period: "2022",
-        role: "Développeur Full Stack",
-        summary:
-          "Une plateforme de location avec authentification, un moteur de réservation qui refuse la double réservation, et une interface de réservation interactive.",
-        stack: ["React", "Redux", "Ruby on Rails", "PostgreSQL", "RSpec"],
-        featured: false,
-        study: {
-          lead:
-            "Un système de location est un problème de planification déguisé en formulaire. L'intérêt n'est jamais le formulaire : c'est ce qui se passe quand deux personnes réservent le même vélo sur des jours qui se chevauchent, au même instant.",
-          sections: [
-            {
-              heading: "L'approche",
-              body: [
-                "Une API Rails avec une contrainte d'exclusion Postgres sur la plage de dates de réservation : les chevauchements sont impossibles au niveau de la base, et pas seulement improbables au niveau applicatif. L'API remonte le conflit et l'interface en fait un message lisible plutôt qu'une erreur 500.",
-                "React et Redux côté interface, pour un parcours où la disponibilité se met à jour au changement de plage de dates, et où l'utilisateur ne voit jamais un créneau qu'il ne peut pas prendre.",
-              ],
-              list: [
-                "Authentification par jeton avec invalidation de session côté serveur",
-                "Disponibilité calculée depuis la plage de réservation plutôt que depuis un statut mutable",
-                "Interface optimiste à la sélection, confirmation pessimiste à la validation",
-              ],
-            },
-          ],
-          outcome: [
-            "Double réservation rendue structurellement impossible plutôt que défendue dans le code applicatif",
-            "Construit pendant le programme Microverse, en pair programming distant quotidien",
-          ],
-        },
-      },
-      {
-        slug: "ecommerce-platform",
-        index: "05",
-        name: "Plateforme e-commerce",
-        tagline: "Catalogue à facettes et tunnel de commande fiable",
-        category: "Application full-stack",
-        period: "2022",
-        role: "Développeur Full Stack",
-        summary:
-          "Une boutique avec filtrage multidimensionnel sur un catalogue en croissance, et un tunnel de commande construit autour de l'idempotence.",
-        stack: ["React", "Redux", "Ruby on Rails", "PostgreSQL"],
-        featured: false,
-        study: {
-          lead:
-            "Deux choses décident si une boutique fonctionne : la capacité du client à réduire le catalogue jusqu'à l'article voulu, et la fiabilité du tunnel de commande quand il s'agit d'argent.",
-          sections: [
-            {
-              heading: "L'approche",
-              body: [
-                "Le filtrage est entièrement piloté par l'URL. Chaque facette — catégorie, tranche de prix, attributs, tri — vit dans la query string : une vue filtrée est partageable, restaurable au rafraîchissement et cacheable, et le client ne conserve aucun état de filtre.",
-                "Le tunnel traite la soumission comme idempotente. Une commande porte une clé générée côté client : une requête rejouée retombe sur la même commande plutôt que d'en créer une seconde — c'est le mode d'échec que produit le plus souvent une connexion instable.",
-              ],
-              list: [
-                "Filtrage à facettes avec l'URL comme état, pagination côté serveur",
-                "Soumission de commande idempotente, avec clé par tentative",
-                "Panier persistant entre sessions et réconcilié à la connexion",
-              ],
-            },
-          ],
-          outcome: [
-            "Catalogue navigable sur plusieurs dimensions à la fois, sans enchevêtrement d'état côté client",
-            "Tunnel résistant aux doubles soumissions et aux rejeux réseau",
-          ],
-        },
-      },
     ],
   },
 
@@ -343,19 +414,22 @@ export const fr: Content = {
         period: "Août 2023 — Fév. 2026",
         location: "Sousse, Tunisie",
         summary:
-          "Prise en charge de fonctionnalités de bout en bout, d'un front Next.js à une API Node, avec la performance comme exigence permanente.",
+          "Trois ans sur la plateforme d'une entreprise qatarie d'abonnement repas qui possède sa cuisine, sa chaîne de conditionnement et sa flotte de livraison — site public, backend en microservices, et le système interne qui pilote l'opération.",
         highlights: [
+          "Construction du site public menée avec deux autres développeurs, contribuant à 30 % de ventes en ligne supplémentaires au premier trimestre après le lancement.",
+          "Contribution majeure au backend en microservices et au tableau de bord interne — un ERP et CRM sur mesure couvrant abonnements, flux de cuisine, conditionnement, livraisons, revendeurs B2B et historique client.",
+          "Développement de la cartographie de couverture de livraison, de la couche de configuration et de thématisation qui pilote les applications cuisine, livreur et préparateur, et de la journalisation structurée derrière le reporting opérationnel.",
           "Conception et optimisation des endpoints d'API : 30 % de temps de réponse en moins.",
           "Architecture front-end scalable en Next.js et React : 25 % de gain sur le temps de chargement des pages.",
           "Introduction de GraphQL pour des requêtes pilotées par le client, éliminant le sur-chargement de données sur les écrans denses.",
-          "Intégration de services tiers de paiement et de visualisation de données dans le produit.",
-          "Refactorisation d'une base de code historique vers des frontières de modules plus nettes, au bénéfice de la scalabilité et de la maintenabilité.",
+          "Intégration d'un CMS headless et du suivi d'événements du tunnel, pour que le marketing publie offres et pages de campagne sans déploiement.",
         ],
         metrics: [
+          { value: "10 000+", label: "Utilisateurs actifs" },
+          { value: "+30 %", label: "Ventes en ligne" },
           { value: "−30 %", label: "Temps de réponse API" },
-          { value: "−25 %", label: "Temps de chargement" },
         ],
-        stack: ["Next.js", "React", "Node.js", "GraphQL", "TypeScript"],
+        stack: ["Next.js", "React", "Node.js", "NestJS", "GraphQL", "TypeScript", "PostgreSQL"],
       },
       {
         id: "enr-agri",

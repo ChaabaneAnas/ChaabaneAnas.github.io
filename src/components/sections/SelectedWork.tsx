@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/ui/Reveal";
-import { ArrowUpRight } from "@/components/ui/Icons";
+import { ArrowUpRight, GitHub } from "@/components/ui/Icons";
 import { workPath } from "@/lib/routes";
 import type { Content, Lang } from "@/content/types";
 
@@ -17,7 +17,7 @@ const SIGNATURES = [
 ];
 
 export function SelectedWork({ lang, content }: { lang: Lang; content: Content }) {
-  const { work } = content;
+  const { work, caseStudy } = content;
   const listRef = useRef<HTMLUListElement>(null);
   const previewRef = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState<number | null>(null);
@@ -70,25 +70,47 @@ export function SelectedWork({ lang, content }: { lang: Lang; content: Content }
       {work.projects.map((project, index) => (
         <li key={project.slug}>
           <Reveal delay={index * 0.05}>
-            <Link
-              href={workPath(lang, project.slug)}
+            {/*
+              The row is a plain container, not a link: an <a> cannot nest
+              inside another <a>. The title carries the real link and stretches
+              an overlay across the row, and the external links sit above that
+              overlay so they stay independently clickable.
+            */}
+            <div
               onMouseEnter={() => setHovered(index)}
               onFocus={() => setHovered(index)}
               className="group relative flex flex-col gap-5 border-b border-line py-8 transition-colors duration-500 hover:bg-surface/40 sm:py-10 lg:flex-row lg:items-center lg:gap-10 lg:px-4"
             >
               <span
                 aria-hidden
-                className="absolute inset-x-0 -bottom-px h-px origin-left scale-x-0 bg-linear-to-r from-accent to-transparent transition-transform duration-700 ease-expo group-hover:scale-x-100 group-focus-visible:scale-x-100"
+                className="absolute inset-x-0 -bottom-px h-px origin-left scale-x-0 bg-linear-to-r from-accent to-transparent transition-transform duration-700 ease-expo group-hover:scale-x-100 group-focus-within:scale-x-100"
               />
 
               <span className="font-mono text-xs tracking-[0.2em] text-muted transition-colors group-hover:text-accent lg:w-16">
-                {project.index}
+                {String(index + 1).padStart(2, "0")}
               </span>
 
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                  <h3 className="text-h3 font-semibold transition-transform duration-500 ease-expo group-hover:translate-x-1">
-                    {project.name}
+                  <h3 className="text-h3 font-semibold">
+                    {/*
+                      Two details this overlay depends on:
+                      - z-1 lifts it above the row's later siblings, which would
+                        otherwise paint over it and swallow the click.
+                      - the hover nudge lives on the inner span, never on an
+                        ancestor of the link. A transform on an ancestor becomes
+                        the containing block for `inset-0`, which would silently
+                        shrink the overlay to the title box on hover — clickable
+                        until you point at it.
+                    */}
+                    <Link
+                      href={workPath(lang, project.slug)}
+                      className="after:absolute after:inset-0 after:z-1 after:content-['']"
+                    >
+                      <span className="inline-block transition-transform duration-500 ease-expo group-hover:translate-x-1">
+                        {project.name}
+                      </span>
+                    </Link>
                   </h3>
                   <span className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-dim">
                     {project.category}
@@ -104,6 +126,21 @@ export function SelectedWork({ lang, content }: { lang: Lang; content: Content }
                     </li>
                   ))}
                 </ul>
+
+                {project.links?.live || project.links?.repo ? (
+                  <div className="relative z-10 mt-4 flex flex-wrap gap-2">
+                    {project.links.live ? (
+                      <ExternalChip href={project.links.live} label={caseStudy.liveSite} />
+                    ) : null}
+                    {project.links.repo ? (
+                      <ExternalChip
+                        href={project.links.repo}
+                        label={caseStudy.sourceCode}
+                        icon="repo"
+                      />
+                    ) : null}
+                  </div>
+                ) : null}
               </div>
 
               <div className="flex items-center justify-between gap-6 lg:w-52 lg:flex-col lg:items-end lg:justify-center">
@@ -123,7 +160,7 @@ export function SelectedWork({ lang, content }: { lang: Lang; content: Content }
                   SIGNATURES[index % SIGNATURES.length]
                 }`}
               />
-            </Link>
+            </div>
           </Reveal>
         </li>
       ))}
@@ -148,7 +185,7 @@ export function SelectedWork({ lang, content }: { lang: Lang; content: Content }
               <div className="absolute inset-0 noise-field opacity-[0.12] mix-blend-overlay" />
               <div className="relative flex h-full flex-col justify-between text-[#050506]">
                 <span className="font-mono text-[0.625rem] uppercase tracking-[0.2em] opacity-80">
-                  {work.projects[shown ?? 0].index} / {work.projects[shown ?? 0].period}
+                  {String((shown ?? 0) + 1).padStart(2, "0")} / {work.projects[shown ?? 0].period}
                 </span>
                 <div>
                   <p className="text-xl font-semibold leading-tight">
@@ -164,5 +201,28 @@ export function SelectedWork({ lang, content }: { lang: Lang; content: Content }
         </div>
       ) : null}
     </ul>
+  );
+}
+
+function ExternalChip({
+  href,
+  label,
+  icon = "live",
+}: {
+  href: string;
+  label: string;
+  icon?: "live" | "repo";
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 font-mono text-[0.625rem] uppercase tracking-[0.12em] text-muted transition-colors hover:border-accent/45 hover:bg-surface-2 hover:text-accent"
+    >
+      {icon === "repo" ? <GitHub className="text-sm" /> : null}
+      {label}
+      <ArrowUpRight className="text-sm" />
+    </a>
   );
 }

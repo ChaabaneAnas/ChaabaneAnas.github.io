@@ -5,7 +5,7 @@ import { Chip } from '@/components/ui/Chip';
 import { MonoLabel } from '@/components/ui/MonoLabel';
 import { ActionLink } from '@/components/ui/ActionLink';
 import { ArrowRight, ArrowUpRight, Check } from '@/components/ui/Icons';
-import { getContent, getNextProject, getProject } from '@/content';
+import { getContent, getNextProject, getProject, getProjectIndex } from '@/content';
 import { sectionPath, workPath } from '@/lib/routes';
 import type { Lang } from '@/content/types';
 
@@ -39,7 +39,7 @@ export function CaseStudy({ lang, slug }: { lang: Lang; slug: string }) {
                     </Link>
 
                     <div className="mt-10 flex flex-wrap items-center gap-4">
-                        <MonoLabel index={project.index}>
+                        <MonoLabel index={getProjectIndex(slug)}>
                             {project.category}
                         </MonoLabel>
                     </div>
@@ -57,7 +57,9 @@ export function CaseStudy({ lang, slug }: { lang: Lang; slug: string }) {
                     >
                         <div className="absolute inset-0 grid-field opacity-30" />
                         <div className="absolute inset-0 noise-field opacity-[0.05] mix-blend-overlay" />
-                        <span className="absolute -bottom-3 left-6 select-none text-[clamp(3rem,9vw,6rem)] font-bold uppercase tracking-[-0.04em] text-white/6 sm:left-8">
+                        {/* One line, clipped by the band — a long name must not
+                            wrap, or only its last word stays visible. */}
+                        <span className="absolute -bottom-3 left-6 select-none whitespace-nowrap text-[clamp(3rem,9vw,6rem)] font-bold uppercase tracking-[-0.04em] text-white/6 sm:left-8">
                             {project.name}
                         </span>
                     </div>
@@ -229,7 +231,7 @@ export function CaseStudy({ lang, slug }: { lang: Lang; slug: string }) {
                             <MonoLabel>{labels.next}</MonoLabel>
                             <p className="mt-4 flex items-center gap-4 text-h2 font-semibold transition-colors group-hover:text-accent">
                                 {next.name}
-                                <ArrowUpRight className="text-2xl transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                <ArrowUpRight className="text-2xl transition-transform duration-500 ease-expo group-hover:translate-x-1 group-hover:-translate-y-1" />
                             </p>
                             <p className="mt-3 max-w-[46ch] text-sm text-muted">
                                 {next.tagline}

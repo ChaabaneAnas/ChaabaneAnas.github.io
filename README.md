@@ -39,12 +39,17 @@ Common edits:
 | Hero stats | `hero.stats` |
 | A job | `experience.items` |
 | A project **and its case study** | `work.projects[]` — one object holds the card *and* the whole write-up |
+| Project order and numbering | Array order in `work.projects`. The `01`/`02` labels are derived from position — there is no number to keep in sync |
+| A project's live / repo links | `links: { live, repo }` on the project. Omit it and no link renders |
 | Skills | `stack.groups` |
 | Contact details, social links | `src/lib/site.ts` |
 | Hide a repo from the GitHub feed | `HIDDEN_REPOS` in `src/components/sections/GitHubActivity.tsx` |
 
 Adding a project is a single object in **both** `work.projects` arrays; the route
 `/work/<slug>/` and its French twin are generated from the slug automatically.
+`en.ts` and `fr.ts` must list the same slugs in the same order — if they drift,
+the build stops with a message naming both lists (`src/content/index.ts`) rather
+than failing later with a 404 during prerendering.
 
 Replacing the résumé PDF: drop the new file at `public/Eng_Anas_Chaabane.pdf`,
 or change `SITE.resume` in `src/lib/site.ts`.

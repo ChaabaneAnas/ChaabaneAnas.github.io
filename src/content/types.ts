@@ -48,8 +48,8 @@ export interface ProjectLinks {
 }
 
 export interface Project {
+  /** Stable, language-neutral route segment. Must match across dictionaries. */
   slug: string;
-  index: string;
   name: string;
   tagline: string;
   category: string;
@@ -58,7 +58,6 @@ export interface Project {
   /** One-line card summary on the home page. */
   summary: string;
   stack: string[];
-  featured: boolean;
   links?: ProjectLinks;
   study: {
     lead: string;

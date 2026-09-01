@@ -73,20 +73,20 @@ export const en: Content = {
     all: "All work",
     projects: [
       {
-        slug: "bi-visualization-extensions",
-        index: "01",
-        name: "BI Visualization Extensions",
-        tagline: "Custom chart engines inside Power BI and Qlik",
+        slug: "truechart",
+        name: "Truechart Plus",
+        tagline: "IBCS-compliant chart engines inside Power BI and Qlik",
         category: "Data visualization · Vayetek",
         period: "2026 — Present",
         role: "Lead Full Stack Developer",
         summary:
-          "React and D3 visualization extensions running inside Power BI and Qlik Sense, built for datasets large enough that a naive render locks up the host application.",
+          "React and D3 IBCS-compliant visualization extensions running inside Power BI and Qlik Sense, built for datasets large enough that a naive render locks up the host application.",
         stack: ["React", "TypeScript", "D3.js", "Power BI API", "Qlik Sense API", "Rollup"],
-        featured: true,
+        // Paste the product URL to show a "Visit" link on the card and case study:
+        // links: { live: "https://example.com" },
         study: {
           lead:
-            "Business intelligence platforms ship with a fixed chart library. When a client needs a visual that library does not have, someone has to build it — sandboxed, inside the host's rendering lifecycle, against the host's data model. That is the work I lead at Vayetek.",
+            "Designed to streamline data visualization and teamwork, TRUECHART enhances IBCS clarity with real-time commenting, flexible pivoting, and planning features like splashing and scenarios—enabling insight, collaboration, and strategy in one place.",
           sections: [
             {
               heading: "The problem",
@@ -129,8 +129,148 @@ export const en: Content = {
         },
       },
       {
+        slug: "dieture-platform",
+        name: "Dieture Operations Platform",
+        tagline: "The software that runs a meal-subscription business end to end",
+        category: "Internal platform · Dieture",
+        period: "2023 — 2026",
+        role: "Full Stack Developer",
+        summary:
+          "A microservices backend, three role-specific field apps and a custom ERP/CRM backoffice running subscriptions, kitchen, packing, delivery and B2B for 10,000+ active customers.",
+        stack: [
+          "React",
+          "TypeScript",
+          "Node.js",
+          "NestJS",
+          "Microservices",
+          "PostgreSQL",
+          "GraphQL",
+        ],
+        // Internal system — no public link by design.
+        study: {
+          lead:
+            "Dieture does not outsource the hard part. It owns the kitchen, the packing line and the drivers, so a subscription is not a transaction that ends at checkout — it is a meal that has to be cooked, packed, routed and delivered, every day, for thousands of customers at once. The software that coordinates all of that is what I spent three years building.",
+          sections: [
+            {
+              heading: "The problem",
+              body: [
+                "An operation spanning a kitchen, a packing line, a delivery fleet and a support desk produces the same information four times, in four places. Before the platform, each of those ran on its own tool — spreadsheets, chat threads, printed sheets — and none of them agreed with the others.",
+                "The cost shows up as questions nobody can answer quickly: where is this subscription in today's cycle, why did this delivery miss, how much of this ingredient does tomorrow need. Past 10,000 active customers, the gaps between tools stopped being an annoyance and became the constraint on growth.",
+              ],
+            },
+            {
+              heading: "The system",
+              body: [
+                "One microservices backend holds the domain — subscriptions, customers, menus, inventory, deliveries — and every surface above it is a thin, role-specific client over that single model. No business rule gets re-implemented in an app.",
+                "Each field app is deliberately narrow. A chef mid-service, a packer at the line and a driver holding a phone in one hand do not need the same screen, and none of them needs a general-purpose one. Each app answers the single question its user has at that moment.",
+              ],
+              list: [
+                "Kitchen app — production requirements per service, derived from live subscription data into what actually has to be cooked",
+                "Packer app — the packing line's queue, item by item, with verification built into the flow",
+                "Driver app — the day's route and stops, built for one-handed use in a vehicle",
+                "Backoffice dashboard — the control surface over all of it",
+              ],
+            },
+            {
+              heading: "The dashboard",
+              body: [
+                "The dashboard replaced the most tools. It is a custom ERP and CRM in one: subscriptions with their full history, customer progress, deliveries, packing, kitchen workflows, B2B retailer accounts, and internal capture of complaints and feedback — plus the configuration that drives every other app in the platform.",
+                "Two parts took the most work. Delivery coverage is modelled as editable geographic zones rather than a list of accepted areas, so operations can redraw what is serviceable without a developer. And every meaningful action writes a structured log entry, which is what turned \"why did this happen\" from an investigation into a query.",
+              ],
+              list: [
+                "Custom delivery-coverage mapping, editable by the operations team",
+                "Subscription lifecycle — pauses, plan changes, renewals and full customer history on one timeline",
+                "B2B retailer accounts alongside direct consumer subscriptions",
+                "Advanced theming and configuration, propagated out to the field apps",
+                "Detailed structured logging and real-time operational insight",
+              ],
+            },
+            {
+              heading: "My part in it",
+              body: [
+                "I contributed heavily to the backend and owned large parts of the dashboard across three years — the complicated features rather than the screens: coverage mapping, the configuration layer, subscription state handling, and the logging that made everything else debuggable.",
+                "Building where a bug has a physical consequence changes how you work. A wrong number in the kitchen app is wasted food; a wrong route is a customer who does not eat that day. That is the discipline this codebase taught me.",
+              ],
+            },
+          ],
+          outcome: [
+            "Replaced multiple manual tools with one internal platform used across kitchen, packing, delivery, support and management",
+            "Measurably better operational efficiency, data accuracy and cross-team visibility",
+            "Supported the company's growth past 10,000 active users",
+            "API response times cut by 30% across the services I worked on",
+          ],
+          metrics: [
+            { value: "10,000+", label: "Active users served" },
+            { value: "4", label: "Apps on one backend" },
+            { value: "−30%", label: "API response time" },
+          ],
+        },
+      },
+      {
+        slug: "dieture-website",
+        name: "Dieture Website",
+        tagline: "The front door for a 10,000-customer subscription business",
+        category: "Product · Dieture",
+        period: "2023 — 2026",
+        role: "Full Stack Developer, team of three",
+        summary:
+          "The official Dieture site — meal-plan discovery, dietitian booking, addons, subscription management and onboarding, with a headless CMS and funnel tracking behind it. Led the build with two other developers.",
+        stack: [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "GraphQL",
+          "Headless CMS",
+        ],
+        links: { live: "https://dieture.com" },
+        study: {
+          lead:
+            "A meal subscription is a considered purchase. The website has to explain a product people will eat every day, take a sign-up that involves real choices, and then stay useful to that customer for as long as they subscribe. It is a storefront, an onboarding flow and an account area that all have to feel like one thing.",
+          sections: [
+            {
+              heading: "The problem",
+              body: [
+                "Selling a subscription is not selling a product. A visitor has to understand the plans, trust the nutrition behind them, pick something that fits their goals, and then keep managing that choice long after the first purchase — pausing, changing plan, adding items, booking a dietitian.",
+                "Doing all of that on one site means the marketing surface and the account surface cannot be two products bolted together, which is the usual outcome once the pages marketing owns and the flows engineering owns start drifting apart.",
+              ],
+            },
+            {
+              heading: "Approach",
+              body: [
+                "I led the build with two other developers. We treated content as data from the start: plans, copy and campaign pages come from a headless CMS, so marketing can change an offer or launch a landing page without a deploy and without a developer in the loop.",
+                "Everything that affects conversion is instrumented. Event tracking runs the length of the funnel — plan view, plan selection, onboarding step, checkout — so \"where do people drop out\" has an answer in the data rather than an opinion in a meeting.",
+              ],
+              list: [
+                "Meal-plan discovery and comparison, driven from CMS content",
+                "Dietitian appointment booking",
+                "Addon purchase and subscription management for existing customers",
+                "End-to-end onboarding, from first visit to an active subscription",
+                "Marketing tooling and funnel event tracking wired through the whole flow",
+              ],
+            },
+            {
+              heading: "Three developers, one front end",
+              body: [
+                "Three people on one front end only works if the boundaries are decided before the code is. We split by flow rather than by layer — discovery, onboarding, account — over a shared component and data layer, so two of us were rarely editing the same file and the seams between flows stayed visible in review.",
+              ],
+            },
+          ],
+          outcome: [
+            "30% increase in online sales in the first quarter after launch",
+            "Higher engagement across the plan-discovery and onboarding flows",
+            "Marketing ships copy, plans and campaign pages without a deploy",
+            "Serves a customer base of 10,000+ active subscribers",
+          ],
+          metrics: [
+            { value: "+30%", label: "Online sales, first quarter" },
+            { value: "10,000+", label: "Active users" },
+            { value: "−25%", label: "Page load time" },
+          ],
+        },
+      },
+      {
         slug: "mnadhem",
-        index: "02",
         name: "Mnadhem",
         tagline: "An operations hub built for how Tunisian retail actually works",
         category: "Product · Founder and engineer",
@@ -139,7 +279,8 @@ export const en: Content = {
         summary:
           "Internal operations, cash-flow tracking and inventory for small and mid-sized Tunisian retail, fashion and D2C brands — designed around cash, informal suppliers and multi-channel selling.",
         stack: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Prisma", "Tailwind CSS"],
-        featured: true,
+        // Paste the app URL to show a "Visit" link on the card and case study:
+        // links: { live: "https://example.com" },
         study: {
           lead:
             "Most inventory software assumes a business that banks everything, buys from invoiced suppliers, and sells through one channel. A large share of Tunisian retail does none of those three. Mnadhem is built for the business that actually exists.",
@@ -181,7 +322,6 @@ export const en: Content = {
       },
       {
         slug: "palletflow",
-        index: "03",
         name: "PalletFlow",
         tagline: "Three applications, one logistics pipeline",
         category: "Freelance · Logistics",
@@ -190,7 +330,8 @@ export const en: Content = {
         summary:
           "An admin dashboard, a driver app and a partner portal over a single NestJS backend — covering inventory, mission assignment, QR-scanned delivery and issue tracking.",
         stack: ["React", "Radix UI", "Tailwind CSS", "NestJS", "TypeScript", "PostgreSQL"],
-        featured: true,
+        // Paste the app URL to show a "Visit" link on the card and case study:
+        // links: { live: "https://example.com" },
         study: {
           lead:
             "Pallet logistics has three audiences with almost nothing in common: the operator assigning work, the driver executing it on a phone in the field, and the partner who only wants to know where their goods are. PalletFlow is one system with three deliberately different front doors.",
@@ -235,76 +376,6 @@ export const en: Content = {
           ],
         },
       },
-      {
-        slug: "trek-bike-rental",
-        index: "04",
-        name: "Trek Bike Rental",
-        tagline: "Booking, availability and secure auth end to end",
-        category: "Full-stack application",
-        period: "2022",
-        role: "Full Stack Developer",
-        summary:
-          "A rental platform with authentication, a reservation engine that refuses to double-book, and an interactive booking interface.",
-        stack: ["React", "Redux", "Ruby on Rails", "PostgreSQL", "RSpec"],
-        featured: false,
-        study: {
-          lead:
-            "A rental system is a scheduling problem wearing a booking form. The interesting part is never the form — it is what happens when two people reserve the same bike for overlapping days at the same moment.",
-          sections: [
-            {
-              heading: "Approach",
-              body: [
-                "A Rails API with a Postgres exclusion constraint on the reservation date range, so overlapping bookings are impossible at the database level rather than merely unlikely at the application level. The API surfaces the conflict and the UI turns it into a readable message instead of a 500.",
-                "React and Redux on the front for a booking flow where availability updates as the date range changes, and where the user never sees a slot they cannot actually take.",
-              ],
-              list: [
-                "Token-based authentication with server-side session invalidation",
-                "Availability computed from the reservation range rather than a mutable status flag",
-                "Optimistic UI on selection, pessimistic confirmation on submit",
-              ],
-            },
-          ],
-          outcome: [
-            "Double-booking made structurally impossible rather than defended against in application code",
-            "Built during the Microverse program alongside daily remote pair programming and code review",
-          ],
-        },
-      },
-      {
-        slug: "ecommerce-platform",
-        index: "05",
-        name: "E-commerce Platform",
-        tagline: "Faceted catalogue and a checkout that holds up",
-        category: "Full-stack application",
-        period: "2022",
-        role: "Full Stack Developer",
-        summary:
-          "A storefront with multi-dimensional filtering over a growing catalogue, and a checkout flow built around idempotency.",
-        stack: ["React", "Redux", "Ruby on Rails", "PostgreSQL"],
-        featured: false,
-        study: {
-          lead:
-            "Two things decide whether a storefront works: whether a shopper can narrow the catalogue to the thing they want, and whether the checkout can be trusted with money.",
-          sections: [
-            {
-              heading: "Approach",
-              body: [
-                "Filtering is driven entirely from the URL. Every facet — category, price band, attributes, sort — lives in the query string, so a filtered view is shareable, restorable on refresh and cacheable, and the client holds no filter state of its own.",
-                "The checkout treats submission as idempotent. An order carries a client-generated key, so a retried request resolves to the same order rather than a second one — which is the failure mode a shaky connection produces most often.",
-              ],
-              list: [
-                "URL-as-state faceted filtering with server-side pagination",
-                "Idempotent order submission keyed per attempt",
-                "Cart persisted across sessions and reconciled on login",
-              ],
-            },
-          ],
-          outcome: [
-            "Catalogue navigable across several dimensions at once without a client-side state tangle",
-            "Checkout resilient to double submission and network retries",
-          ],
-        },
-      },
     ],
   },
 
@@ -343,19 +414,22 @@ export const en: Content = {
         period: "Aug 2023 — Feb 2026",
         location: "Sousse, Tunisia",
         summary:
-          "Owned features end to end across a Next.js front end and a Node API, with performance as a standing requirement.",
+          "Three years on the platform behind a Qatari meal-subscription business that owns its own kitchen, packing line and delivery fleet — public website, microservices backend, and the internal system that runs the operation.",
         highlights: [
+          "Led the public website build with two other developers, contributing to a 30% increase in online sales in the first quarter after launch.",
+          "Contributed heavily to the microservices backend and to the internal dashboard — a custom ERP and CRM covering subscriptions, kitchen workflows, packing, deliveries, B2B retailers and customer history.",
+          "Built the delivery-coverage mapping, the configuration and theming layer that drives the kitchen, driver and packer apps, and the structured logging behind operational reporting.",
           "Architected and optimised API endpoints, reducing response time by 30%.",
           "Engineered a scalable front-end architecture in Next.js and React, delivering 25% faster page loads.",
           "Introduced GraphQL for client-driven queries, eliminating over-fetching on data-heavy screens.",
-          "Integrated third-party payment processing and data-visualization services into the product.",
-          "Refactored a legacy codebase toward clearer module boundaries, improving scalability and maintainability.",
+          "Integrated a headless CMS and funnel event tracking so marketing ships offers and campaign pages without a deploy.",
         ],
         metrics: [
+          { value: "10,000+", label: "Active users" },
+          { value: "+30%", label: "Online sales" },
           { value: "−30%", label: "API response time" },
-          { value: "−25%", label: "Page load time" },
         ],
-        stack: ["Next.js", "React", "Node.js", "GraphQL", "TypeScript"],
+        stack: ["Next.js", "React", "Node.js", "NestJS", "GraphQL", "TypeScript", "PostgreSQL"],
       },
       {
         id: "enr-agri",
