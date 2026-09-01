@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/ui/Reveal";
 import { ArrowUpRight, GitHub } from "@/components/ui/Icons";
+import { getProjectLinks } from "@/content/links";
 import { workPath } from "@/lib/routes";
 import type { Content, Lang } from "@/content/types";
 
@@ -79,7 +80,9 @@ export function SelectedWork({ lang, content }: { lang: Lang; content: Content }
       onMouseLeave={() => setHovered(null)}
       className="relative border-t border-line"
     >
-      {work.projects.map((project, index) => (
+      {work.projects.map((project, index) => {
+        const links = getProjectLinks(project.slug);
+        return (
         <li key={project.slug}>
           <Reveal delay={index * 0.05}>
             {/*
@@ -139,14 +142,14 @@ export function SelectedWork({ lang, content }: { lang: Lang; content: Content }
                   ))}
                 </ul>
 
-                {project.links?.live || project.links?.repo ? (
+                {links.live || links.repo ? (
                   <div className="relative z-10 mt-4 flex flex-wrap gap-2">
-                    {project.links.live ? (
-                      <ExternalChip href={project.links.live} label={caseStudy.liveSite} />
+                    {links.live ? (
+                      <ExternalChip href={links.live} label={caseStudy.liveSite} />
                     ) : null}
-                    {project.links.repo ? (
+                    {links.repo ? (
                       <ExternalChip
-                        href={project.links.repo}
+                        href={links.repo}
                         label={caseStudy.sourceCode}
                         icon="repo"
                       />
@@ -174,7 +177,8 @@ export function SelectedWork({ lang, content }: { lang: Lang; content: Content }
             </div>
           </Reveal>
         </li>
-      ))}
+        );
+      })}
 
       {enabled ? (
         <div

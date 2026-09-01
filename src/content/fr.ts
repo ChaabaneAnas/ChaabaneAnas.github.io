@@ -82,8 +82,6 @@ export const fr: Content = {
         summary:
           "Des extensions de visualisation React et D3 conformes IBCS, exécutées à l'intérieur de Power BI et Qlik Sense, conçues pour des volumes de données où un rendu naïf fige l'application hôte.",
         stack: ["React", "TypeScript", "D3.js", "API Power BI", "API Qlik Sense", "Rollup"],
-        // Collez l'URL du produit pour afficher un lien « Voir » :
-        // links: { live: "https://example.com" },
         study: {
           lead:
             "Pensé pour fluidifier la visualisation de données et le travail d'équipe, TRUECHART renforce la clarté IBCS avec le commentaire en temps réel, un pivot souple et des fonctions de planification comme le splashing et les scénarios — analyse, collaboration et stratégie au même endroit.",
@@ -138,8 +136,6 @@ export const fr: Content = {
         summary:
           "Opérations internes, suivi de trésorerie et stock pour les commerces, marques de mode et D2C tunisiens de petite et moyenne taille — conçu autour du cash, des fournisseurs informels et de la vente multicanale.",
         stack: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Prisma", "Tailwind CSS"],
-        // Collez l'URL de l'application pour afficher un lien « Voir » :
-        // links: { live: "https://example.com" },
         study: {
           lead:
             "La plupart des logiciels de gestion de stock présupposent une entreprise qui bancarise tout, achète à des fournisseurs facturés et vend sur un seul canal. Une grande part du commerce tunisien ne coche aucune des trois cases. Mnadhem est construit pour l'entreprise qui existe vraiment.",
@@ -179,6 +175,69 @@ export const fr: Content = {
           ],
         },
       },
+            {
+        slug: "dieture-website",
+        name: "Site web Dieture",
+        tagline: "La porte d'entrée d'une activité d'abonnement à 10 000 clients",
+        category: "Produit · Dieture",
+        period: "2023 — 2026",
+        role: "Développeur Full Stack, équipe de trois",
+        summary:
+          "Le site officiel de Dieture — découverte des formules, prise de rendez-vous avec un diététicien, options, gestion de l'abonnement et onboarding, avec un CMS headless et le suivi du tunnel derrière. Construit sous ma conduite avec deux autres développeurs.",
+        stack: [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "GraphQL",
+          "CMS headless",
+        ],
+        study: {
+          lead:
+            "Un abonnement repas est un achat réfléchi. Le site doit expliquer un produit que les gens vont manger tous les jours, encaisser une inscription qui suppose de vrais choix, puis rester utile au client aussi longtemps qu'il est abonné. C'est à la fois une vitrine, un parcours d'onboarding et un espace client, et tout cela doit sembler ne faire qu'un.",
+          sections: [
+            {
+              heading: "Le problème",
+              body: [
+                "Vendre un abonnement n'est pas vendre un produit. Un visiteur doit comprendre les formules, faire confiance à la nutrition derrière, choisir ce qui correspond à ses objectifs, puis continuer à gérer ce choix bien après le premier achat — mettre en pause, changer de formule, ajouter des options, réserver un diététicien.",
+                "Faire tout cela sur un seul site implique que la surface marketing et la surface client ne peuvent pas être deux produits vissés l'un à l'autre — ce qui arrive toujours quand les pages que possède le marketing et les parcours que possède l'ingénierie commencent à diverger.",
+              ],
+            },
+            {
+              heading: "L'approche",
+              body: [
+                "J'ai mené la construction avec deux autres développeurs. Nous avons traité le contenu comme de la donnée dès le départ : formules, textes et pages de campagne viennent d'un CMS headless, si bien que le marketing modifie une offre ou lance une landing page sans déploiement et sans développeur dans la boucle.",
+                "Tout ce qui pèse sur la conversion est instrumenté. Le suivi d'événements parcourt tout le tunnel — vue d'une formule, sélection, étape d'onboarding, paiement — de sorte que « où décrochent les gens » trouve sa réponse dans les données plutôt que dans un avis en réunion.",
+              ],
+              list: [
+                "Découverte et comparaison des formules, pilotées par le contenu du CMS",
+                "Prise de rendez-vous avec un diététicien",
+                "Achat d'options et gestion de l'abonnement pour les clients existants",
+                "Onboarding de bout en bout, de la première visite à l'abonnement actif",
+                "Outils marketing et suivi d'événements du tunnel câblés sur tout le parcours",
+              ],
+            },
+            {
+              heading: "Trois développeurs, un seul front",
+              body: [
+                "À trois sur un même front-end, cela ne marche que si les frontières sont décidées avant le code. Nous avons découpé par parcours plutôt que par couche — découverte, onboarding, espace client — au-dessus d'une couche de composants et de données partagée : nous éditions rarement le même fichier à deux, et les coutures entre parcours restaient visibles en revue.",
+              ],
+            },
+          ],
+          outcome: [
+            "30 % de ventes en ligne supplémentaires au premier trimestre après le lancement",
+            "Engagement en hausse sur les parcours de découverte et d'onboarding",
+            "Le marketing publie textes, formules et pages de campagne sans déploiement",
+            "Sert une base de plus de 10 000 abonnés actifs",
+          ],
+          metrics: [
+            { value: "+30 %", label: "Ventes en ligne, 1er trimestre" },
+            { value: "10 000+", label: "Utilisateurs actifs" },
+            { value: "−25 %", label: "Temps de chargement" },
+          ],
+        },
+      },
+
       {
         slug: "dieture-platform",
         name: "Plateforme opérationnelle Dieture",
@@ -197,7 +256,6 @@ export const fr: Content = {
           "PostgreSQL",
           "GraphQL",
         ],
-        // Système interne — pas de lien public, volontairement.
         study: {
           lead:
             "Dieture n'externalise pas le plus difficile. L'entreprise possède sa cuisine, sa chaîne de conditionnement et ses livreurs : un abonnement n'est donc pas une transaction qui s'arrête au paiement, c'est un repas qu'il faut cuisiner, conditionner, router et livrer, chaque jour, pour des milliers de clients à la fois. Le logiciel qui coordonne tout cela, c'est ce que j'ai construit pendant trois ans.",
@@ -257,69 +315,6 @@ export const fr: Content = {
           ],
         },
       },
-      {
-        slug: "dieture-website",
-        name: "Site web Dieture",
-        tagline: "La porte d'entrée d'une activité d'abonnement à 10 000 clients",
-        category: "Produit · Dieture",
-        period: "2023 — 2026",
-        role: "Développeur Full Stack, équipe de trois",
-        summary:
-          "Le site officiel de Dieture — découverte des formules, prise de rendez-vous avec un diététicien, options, gestion de l'abonnement et onboarding, avec un CMS headless et le suivi du tunnel derrière. Construit sous ma conduite avec deux autres développeurs.",
-        stack: [
-          "Next.js",
-          "React",
-          "TypeScript",
-          "Tailwind CSS",
-          "GraphQL",
-          "CMS headless",
-        ],
-        links: { live: "https://dieture.com" },
-        study: {
-          lead:
-            "Un abonnement repas est un achat réfléchi. Le site doit expliquer un produit que les gens vont manger tous les jours, encaisser une inscription qui suppose de vrais choix, puis rester utile au client aussi longtemps qu'il est abonné. C'est à la fois une vitrine, un parcours d'onboarding et un espace client, et tout cela doit sembler ne faire qu'un.",
-          sections: [
-            {
-              heading: "Le problème",
-              body: [
-                "Vendre un abonnement n'est pas vendre un produit. Un visiteur doit comprendre les formules, faire confiance à la nutrition derrière, choisir ce qui correspond à ses objectifs, puis continuer à gérer ce choix bien après le premier achat — mettre en pause, changer de formule, ajouter des options, réserver un diététicien.",
-                "Faire tout cela sur un seul site implique que la surface marketing et la surface client ne peuvent pas être deux produits vissés l'un à l'autre — ce qui arrive toujours quand les pages que possède le marketing et les parcours que possède l'ingénierie commencent à diverger.",
-              ],
-            },
-            {
-              heading: "L'approche",
-              body: [
-                "J'ai mené la construction avec deux autres développeurs. Nous avons traité le contenu comme de la donnée dès le départ : formules, textes et pages de campagne viennent d'un CMS headless, si bien que le marketing modifie une offre ou lance une landing page sans déploiement et sans développeur dans la boucle.",
-                "Tout ce qui pèse sur la conversion est instrumenté. Le suivi d'événements parcourt tout le tunnel — vue d'une formule, sélection, étape d'onboarding, paiement — de sorte que « où décrochent les gens » trouve sa réponse dans les données plutôt que dans un avis en réunion.",
-              ],
-              list: [
-                "Découverte et comparaison des formules, pilotées par le contenu du CMS",
-                "Prise de rendez-vous avec un diététicien",
-                "Achat d'options et gestion de l'abonnement pour les clients existants",
-                "Onboarding de bout en bout, de la première visite à l'abonnement actif",
-                "Outils marketing et suivi d'événements du tunnel câblés sur tout le parcours",
-              ],
-            },
-            {
-              heading: "Trois développeurs, un seul front",
-              body: [
-                "À trois sur un même front-end, cela ne marche que si les frontières sont décidées avant le code. Nous avons découpé par parcours plutôt que par couche — découverte, onboarding, espace client — au-dessus d'une couche de composants et de données partagée : nous éditions rarement le même fichier à deux, et les coutures entre parcours restaient visibles en revue.",
-              ],
-            },
-          ],
-          outcome: [
-            "30 % de ventes en ligne supplémentaires au premier trimestre après le lancement",
-            "Engagement en hausse sur les parcours de découverte et d'onboarding",
-            "Le marketing publie textes, formules et pages de campagne sans déploiement",
-            "Sert une base de plus de 10 000 abonnés actifs",
-          ],
-          metrics: [
-            { value: "+30 %", label: "Ventes en ligne, 1er trimestre" },
-            { value: "10 000+", label: "Utilisateurs actifs" },
-            { value: "−25 %", label: "Temps de chargement" },
-          ],
-        },
-      },
 
       {
         slug: "palletflow",
@@ -331,8 +326,6 @@ export const fr: Content = {
         summary:
           "Un tableau de bord admin, une application chauffeur et un portail partenaire sur un unique backend NestJS — stock, affectation des missions, livraison scannée par QR et suivi des incidents.",
         stack: ["React", "Radix UI", "Tailwind CSS", "NestJS", "TypeScript", "PostgreSQL"],
-        // Collez l'URL de l'application pour afficher un lien « Voir » :
-        // links: { live: "https://example.com" },
         study: {
           lead:
             "La logistique de palettes a trois publics qui n'ont presque rien en commun : l'exploitant qui affecte le travail, le chauffeur qui l'exécute sur un téléphone sur le terrain, et le partenaire qui veut seulement savoir où sont ses marchandises. PalletFlow est un seul système avec trois portes d'entrée délibérément différentes.",

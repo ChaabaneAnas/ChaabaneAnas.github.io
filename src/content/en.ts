@@ -82,8 +82,6 @@ export const en: Content = {
         summary:
           "React and D3 IBCS-compliant visualization extensions running inside Power BI and Qlik Sense, built for datasets large enough that a naive render locks up the host application.",
         stack: ["React", "TypeScript", "D3.js", "Power BI API", "Qlik Sense API", "Rollup"],
-        // Paste the product URL to show a "Visit" link on the card and case study:
-        // links: { live: "https://example.com" },
         study: {
           lead:
             "Designed to streamline data visualization and teamwork, TRUECHART enhances IBCS clarity with real-time commenting, flexible pivoting, and planning features like splashing and scenarios—enabling insight, collaboration, and strategy in one place.",
@@ -138,8 +136,6 @@ export const en: Content = {
         summary:
           "Internal operations, cash-flow tracking and inventory for small and mid-sized Tunisian retail, fashion and D2C brands — designed around cash, informal suppliers and multi-channel selling.",
         stack: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Prisma", "Tailwind CSS"],
-        // Paste the app URL to show a "Visit" link on the card and case study:
-        // links: { live: "https://example.com" },
         study: {
           lead:
             "Most inventory software assumes a business that banks everything, buys from invoiced suppliers, and sells through one channel. A large share of Tunisian retail does none of those three. Mnadhem is built for the business that actually exists.",
@@ -180,6 +176,68 @@ export const en: Content = {
         },
       },
       {
+        slug: "dieture-website",
+        name: "Dieture Website",
+        tagline: "The front door for a 10,000-customer subscription business",
+        category: "Product · Dieture",
+        period: "2023 — 2026",
+        role: "Full Stack Developer, team of three",
+        summary:
+          "The official Dieture site — meal-plan discovery, dietitian booking, addons, subscription management and onboarding, with a headless CMS and funnel tracking behind it. Led the build with two other developers.",
+        stack: [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "GraphQL",
+          "Headless CMS",
+        ],
+        study: {
+          lead:
+            "A meal subscription is a considered purchase. The website has to explain a product people will eat every day, take a sign-up that involves real choices, and then stay useful to that customer for as long as they subscribe. It is a storefront, an onboarding flow and an account area that all have to feel like one thing.",
+          sections: [
+            {
+              heading: "The problem",
+              body: [
+                "Selling a subscription is not selling a product. A visitor has to understand the plans, trust the nutrition behind them, pick something that fits their goals, and then keep managing that choice long after the first purchase — pausing, changing plan, adding items, booking a dietitian.",
+                "Doing all of that on one site means the marketing surface and the account surface cannot be two products bolted together, which is the usual outcome once the pages marketing owns and the flows engineering owns start drifting apart.",
+              ],
+            },
+            {
+              heading: "Approach",
+              body: [
+                "I led the build with two other developers. We treated content as data from the start: plans, copy and campaign pages come from a headless CMS, so marketing can change an offer or launch a landing page without a deploy and without a developer in the loop.",
+                "Everything that affects conversion is instrumented. Event tracking runs the length of the funnel — plan view, plan selection, onboarding step, checkout — so \"where do people drop out\" has an answer in the data rather than an opinion in a meeting.",
+              ],
+              list: [
+                "Meal-plan discovery and comparison, driven from CMS content",
+                "Dietitian appointment booking",
+                "Addon purchase and subscription management for existing customers",
+                "End-to-end onboarding, from first visit to an active subscription",
+                "Marketing tooling and funnel event tracking wired through the whole flow",
+              ],
+            },
+            {
+              heading: "Three developers, one front end",
+              body: [
+                "Three people on one front end only works if the boundaries are decided before the code is. We split by flow rather than by layer — discovery, onboarding, account — over a shared component and data layer, so two of us were rarely editing the same file and the seams between flows stayed visible in review.",
+              ],
+            },
+          ],
+          outcome: [
+            "30% increase in online sales in the first quarter after launch",
+            "Higher engagement across the plan-discovery and onboarding flows",
+            "Marketing ships copy, plans and campaign pages without a deploy",
+            "Serves a customer base of 10,000+ active subscribers",
+          ],
+          metrics: [
+            { value: "+30%", label: "Online sales, first quarter" },
+            { value: "10,000+", label: "Active users" },
+            { value: "−25%", label: "Page load time" },
+          ],
+        },
+      },
+      {
         slug: "dieture-platform",
         name: "Dieture Operations Platform",
         tagline: "The software that runs a meal-subscription business end to end",
@@ -197,7 +255,6 @@ export const en: Content = {
           "PostgreSQL",
           "GraphQL",
         ],
-        // Internal system — no public link by design.
         study: {
           lead:
             "Dieture does not outsource the hard part. It owns the kitchen, the packing line and the drivers, so a subscription is not a transaction that ends at checkout — it is a meal that has to be cooked, packed, routed and delivered, every day, for thousands of customers at once. The software that coordinates all of that is what I spent three years building.",
@@ -257,69 +314,7 @@ export const en: Content = {
           ],
         },
       },
-      {
-        slug: "dieture-website",
-        name: "Dieture Website",
-        tagline: "The front door for a 10,000-customer subscription business",
-        category: "Product · Dieture",
-        period: "2023 — 2026",
-        role: "Full Stack Developer, team of three",
-        summary:
-          "The official Dieture site — meal-plan discovery, dietitian booking, addons, subscription management and onboarding, with a headless CMS and funnel tracking behind it. Led the build with two other developers.",
-        stack: [
-          "Next.js",
-          "React",
-          "TypeScript",
-          "Tailwind CSS",
-          "GraphQL",
-          "Headless CMS",
-        ],
-        links: { live: "https://dieture.com" },
-        study: {
-          lead:
-            "A meal subscription is a considered purchase. The website has to explain a product people will eat every day, take a sign-up that involves real choices, and then stay useful to that customer for as long as they subscribe. It is a storefront, an onboarding flow and an account area that all have to feel like one thing.",
-          sections: [
-            {
-              heading: "The problem",
-              body: [
-                "Selling a subscription is not selling a product. A visitor has to understand the plans, trust the nutrition behind them, pick something that fits their goals, and then keep managing that choice long after the first purchase — pausing, changing plan, adding items, booking a dietitian.",
-                "Doing all of that on one site means the marketing surface and the account surface cannot be two products bolted together, which is the usual outcome once the pages marketing owns and the flows engineering owns start drifting apart.",
-              ],
-            },
-            {
-              heading: "Approach",
-              body: [
-                "I led the build with two other developers. We treated content as data from the start: plans, copy and campaign pages come from a headless CMS, so marketing can change an offer or launch a landing page without a deploy and without a developer in the loop.",
-                "Everything that affects conversion is instrumented. Event tracking runs the length of the funnel — plan view, plan selection, onboarding step, checkout — so \"where do people drop out\" has an answer in the data rather than an opinion in a meeting.",
-              ],
-              list: [
-                "Meal-plan discovery and comparison, driven from CMS content",
-                "Dietitian appointment booking",
-                "Addon purchase and subscription management for existing customers",
-                "End-to-end onboarding, from first visit to an active subscription",
-                "Marketing tooling and funnel event tracking wired through the whole flow",
-              ],
-            },
-            {
-              heading: "Three developers, one front end",
-              body: [
-                "Three people on one front end only works if the boundaries are decided before the code is. We split by flow rather than by layer — discovery, onboarding, account — over a shared component and data layer, so two of us were rarely editing the same file and the seams between flows stayed visible in review.",
-              ],
-            },
-          ],
-          outcome: [
-            "30% increase in online sales in the first quarter after launch",
-            "Higher engagement across the plan-discovery and onboarding flows",
-            "Marketing ships copy, plans and campaign pages without a deploy",
-            "Serves a customer base of 10,000+ active subscribers",
-          ],
-          metrics: [
-            { value: "+30%", label: "Online sales, first quarter" },
-            { value: "10,000+", label: "Active users" },
-            { value: "−25%", label: "Page load time" },
-          ],
-        },
-      },
+
 
       {
         slug: "palletflow",
@@ -331,8 +326,6 @@ export const en: Content = {
         summary:
           "An admin dashboard, a driver app and a partner portal over a single NestJS backend — covering inventory, mission assignment, QR-scanned delivery and issue tracking.",
         stack: ["React", "Radix UI", "Tailwind CSS", "NestJS", "TypeScript", "PostgreSQL"],
-        // Paste the app URL to show a "Visit" link on the card and case study:
-        // links: { live: "https://example.com" },
         study: {
           lead:
             "Pallet logistics has three audiences with almost nothing in common: the operator assigning work, the driver executing it on a phone in the field, and the partner who only wants to know where their goods are. PalletFlow is one system with three deliberately different front doors.",

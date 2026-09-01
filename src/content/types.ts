@@ -42,11 +42,6 @@ export interface CaseSection {
   list?: string[];
 }
 
-export interface ProjectLinks {
-  live?: string;
-  repo?: string;
-}
-
 export interface Project {
   /** Stable, language-neutral route segment. Must match across dictionaries. */
   slug: string;
@@ -58,7 +53,6 @@ export interface Project {
   /** One-line card summary on the home page. */
   summary: string;
   stack: string[];
-  links?: ProjectLinks;
   study: {
     lead: string;
     sections: CaseSection[];

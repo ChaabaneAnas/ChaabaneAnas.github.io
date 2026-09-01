@@ -1,5 +1,6 @@
 import { en } from "./en";
 import { fr } from "./fr";
+import { getProjectLinks } from "./links";
 import type { Content, Lang, Project } from "./types";
 
 const dictionaries: Record<Lang, Content> = { en, fr };
@@ -46,5 +47,5 @@ export function getNextProject(lang: Lang, slug: string): Project | undefined {
   return projects[(index + 1) % projects.length];
 }
 
-export { en, fr };
+export { en, fr, getProjectLinks };
 export type { Content, Lang, Project };

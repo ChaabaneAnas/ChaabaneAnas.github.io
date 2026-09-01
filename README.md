@@ -40,7 +40,7 @@ Common edits:
 | A job | `experience.items` |
 | A project **and its case study** | `work.projects[]` — one object holds the card *and* the whole write-up |
 | Project order and numbering | Array order in `work.projects`. The `01`/`02` labels are derived from position — there is no number to keep in sync |
-| A project's live / repo links | `links: { live, repo }` on the project. Omit it and no link renders |
+| **A project's live site / repo link** | **`src/content/links.ts`** — one entry per slug, language-neutral. Omit a field and no link renders |
 | Skills | `stack.groups` |
 | Contact details, social links | `src/lib/site.ts` |
 | Hide a repo from the GitHub feed | `HIDDEN_REPOS` in `src/components/sections/GitHubActivity.tsx` |

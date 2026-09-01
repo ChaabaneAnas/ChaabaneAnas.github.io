@@ -6,6 +6,7 @@ import { MonoLabel } from '@/components/ui/MonoLabel';
 import { ActionLink } from '@/components/ui/ActionLink';
 import { ArrowRight, ArrowUpRight, Check } from '@/components/ui/Icons';
 import { getContent, getNextProject, getProject, getProjectIndex } from '@/content';
+import { getProjectLinks } from '@/content/links';
 import { sectionPath, workPath } from '@/lib/routes';
 import type { Lang } from '@/content/types';
 
@@ -14,6 +15,7 @@ export function CaseStudy({ lang, slug }: { lang: Lang; slug: string }) {
     const project = getProject(lang, slug);
     if (!project) notFound();
 
+    const links = getProjectLinks(slug);
     const next = getNextProject(lang, slug);
     const labels = content.caseStudy;
 
@@ -94,11 +96,11 @@ export function CaseStudy({ lang, slug }: { lang: Lang; slug: string }) {
                         </div>
                     </dl>
 
-                    {project.links?.live || project.links?.repo ? (
+                    {links.live || links.repo ? (
                         <div className="mt-8 flex flex-wrap gap-3">
-                            {project.links.live ? (
+                            {links.live ? (
                                 <ActionLink
-                                    href={project.links.live}
+                                    href={links.live}
                                     external
                                     variant="ghost"
                                 >
@@ -106,9 +108,9 @@ export function CaseStudy({ lang, slug }: { lang: Lang; slug: string }) {
                                     <ArrowUpRight className="text-base" />
                                 </ActionLink>
                             ) : null}
-                            {project.links.repo ? (
+                            {links.repo ? (
                                 <ActionLink
-                                    href={project.links.repo}
+                                    href={links.repo}
                                     external
                                     variant="ghost"
                                 >
