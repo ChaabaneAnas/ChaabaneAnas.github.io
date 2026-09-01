@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * Design tokens
+ * Dark technical: near-black canvas, a single cyan accent, violet used
+ * only as a secondary signal. Every text/background pair below clears
+ * WCAG AA at its intended size.
+ * ------------------------------------------------------------------ */
+@theme {
+  --color-bg: #0a0a0b;
+  --color-surface: #101013;
+  --color-surface-2: #17181c;
+  --color-line: #232429;
+  --color-line-soft: #1a1b1f;
+
+  --color-text: #ededef;
+  --color-muted: #9a9aa4;
+  --color-dim: #82828d;
+
+  --color-accent: #22d3ee;
+  --color-accent-ink: #0b3b45;
+  --color-violet: #a78bfa;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    monospace;
+
+  --text-display: clamp(3.25rem, 13vw, 11rem);
+  --text-display--line-height: 0.86;
+  --text-display--letter-spacing: -0.045em;
+
+  --text-h1: clamp(2.25rem, 5.5vw, 4.25rem);
+  --text-h1--line-height: 0.98;
+  --text-h1--letter-spacing: -0.035em;
+
+  --text-h2: clamp(1.75rem, 4vw, 2.75rem);
+  --text-h2--line-height: 1.06;
+  --text-h2--letter-spacing: -0.03em;
+
+  --text-h3: clamp(1.25rem, 2.2vw, 1.625rem);
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: -0.02em;
+
+  --text-lead: clamp(1.0625rem, 1.5vw, 1.3125rem);
+  --text-lead--line-height: 1.55;
+
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: marquee 42s linear infinite;
+  --animate-pulse-dot: pulse-dot 2.4s var(--ease-expo) infinite;
+}
+
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.82); }
+}
+
+/* ------------------------------------------------------------------ *
+ * Base
+ * ------------------------------------------------------------------ */
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    scrollbar-color: var(--color-line) transparent;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-accent) 32%, transparent);
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Respect the OS motion preference everywhere, including Motion One. */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Utilities
+ * ------------------------------------------------------------------ */
+@utility shell {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 4.5rem);
+}
+
+/* 1px technical grid, kept faint so it reads as texture not decoration. */
+@utility grid-field {
+  background-image:
+    linear-gradient(to right, var(--color-line-soft) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-line-soft) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+@utility noise-field {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+@utility mask-fade-y {
+  mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+}
+
+@utility mask-fade-x {
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+/* Accent-tinted headline figure used for the resume metrics. */
+@utility figure-accent {
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+/* ------------------------------------------------------------------ *
+ * Reveal + entrance animation
+ * The hidden state is scoped to `html.js`, set by an inline script in the
+ * document head. Without JavaScript nothing is ever hidden.
+ * ------------------------------------------------------------------ */
+@layer base {
+  [data-reveal] {
+    transition:
+      opacity 0.75s var(--ease-expo),
+      transform 0.75s var(--ease-expo);
+  }
+
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes line-up {
+  from {
+    transform: translate3d(0, 108%, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Entrance animations use `both` fill, so the reduced-motion override that
+   collapses duration to 0.01ms lands them straight on their final frame. */
+@utility enter-rise {
+  animation: rise-in 0.85s var(--ease-expo) both;
+}
+
+@utility enter-line {
+  animation: line-up 1s var(--ease-expo) both;
+}
+
+@utility enter-grow {
+  animation: grow-x 0.9s var(--ease-expo) both;
+}
+
+/* ------------------------------------------------------------------ *
+ * Scroll-linked reading progress (progressive enhancement)
+ * ------------------------------------------------------------------ */
+@keyframes scroll-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.scroll-progress {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 60;
+    display: block;
+    height: 1px;
+    transform-origin: left center;
+    background: linear-gradient(to right, var(--color-accent), var(--color-violet));
+    animation: scroll-progress linear both;
+    animation-timeline: scroll(root block);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-progress { display: none; }
+  }
+}
