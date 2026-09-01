@@ -7,14 +7,26 @@ import { ArrowUpRight, GitHub } from "@/components/ui/Icons";
 import { workPath } from "@/lib/routes";
 import type { Content, Lang } from "@/content/types";
 
-/** Per-project colour signature — stands in for a screenshot, and never 404s. */
+/**
+ * Per-project colour signature — stands in for a screenshot, and never 404s.
+ *
+ * Held as colour data rather than Tailwind class strings. A class name picked
+ * out of an array at runtime is only styled if the scanner happened to find
+ * that exact literal in the source, and when it does not the failure is silent:
+ * no error, no warning, just a card with no background.
+ */
 const SIGNATURES = [
-  "from-[#0e7490] via-[#22d3ee] to-[#a78bfa]",
-  "from-[#7c3aed] via-[#a78bfa] to-[#22d3ee]",
-  "from-[#0891b2] via-[#38bdf8] to-[#4ade80]",
-  "from-[#c2410c] via-[#f59e0b] to-[#22d3ee]",
-  "from-[#be123c] via-[#f43f5e] to-[#a78bfa]",
-];
+  ["#0e7490", "#22d3ee", "#a78bfa"],
+  ["#7c3aed", "#a78bfa", "#22d3ee"],
+  ["#0891b2", "#38bdf8", "#4ade80"],
+  ["#c2410c", "#f59e0b", "#22d3ee"],
+  ["#be123c", "#f43f5e", "#a78bfa"],
+] as const;
+
+function signature(index: number, direction: "to bottom right" | "to right") {
+  const stops = SIGNATURES[index % SIGNATURES.length];
+  return `linear-gradient(${direction}, ${stops.join(", ")})`;
+}
 
 export function SelectedWork({ lang, content }: { lang: Lang; content: Content }) {
   const { work, caseStudy } = content;
@@ -156,9 +168,8 @@ export function SelectedWork({ lang, content }: { lang: Lang; content: Content }
               {/* Signature bar, shown where the cursor preview cannot be. */}
               <span
                 aria-hidden
-                className={`h-1 w-full rounded-full bg-linear-to-r opacity-60 lg:hidden ${
-                  SIGNATURES[index % SIGNATURES.length]
-                }`}
+                style={{ backgroundImage: signature(index, "to right") }}
+                className="h-1 w-full rounded-full opacity-60 lg:hidden"
               />
             </div>
           </Reveal>
@@ -177,9 +188,8 @@ export function SelectedWork({ lang, content }: { lang: Lang; content: Content }
             }`}
           >
             <div
-              className={`relative h-44 w-72 overflow-hidden rounded-xl border border-white/10 bg-linear-to-br p-5 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.9)] ${
-                SIGNATURES[(shown ?? 0) % SIGNATURES.length]
-              }`}
+              style={{ backgroundImage: signature(shown ?? 0, "to bottom right") }}
+              className="relative h-44 w-72 overflow-hidden rounded-xl border border-white/10 p-5 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.9)]"
             >
               <div className="absolute inset-0 grid-field opacity-20" />
               <div className="absolute inset-0 noise-field opacity-[0.12] mix-blend-overlay" />
@@ -187,11 +197,13 @@ export function SelectedWork({ lang, content }: { lang: Lang; content: Content }
                 <span className="font-mono text-[0.625rem] uppercase tracking-[0.2em] opacity-80">
                   {String((shown ?? 0) + 1).padStart(2, "0")} / {work.projects[shown ?? 0].period}
                 </span>
+                {/* The card is a fixed size so it does not resize under the
+                    cursor; clamping keeps a long name or tagline inside it. */}
                 <div>
-                  <p className="text-xl font-semibold leading-tight">
+                  <p className="line-clamp-2 text-xl font-semibold leading-tight">
                     {work.projects[shown ?? 0].name}
                   </p>
-                  <p className="mt-1 text-xs font-medium opacity-80">
+                  <p className="mt-1 line-clamp-2 text-xs font-medium opacity-80">
                     {work.projects[shown ?? 0].tagline}
                   </p>
                 </div>
