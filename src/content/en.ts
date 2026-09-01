@@ -570,8 +570,10 @@ export const en: Content = {
       messagePlaceholder: "Tell me about the role, the project, or the problem.",
       submit: "Send message",
       sending: "Sending…",
-      success: "Message sent. I will get back to you shortly.",
-      error: "Something went wrong. Email me directly and it will get there.",
+      success:
+        "Thank you — your message has been sent. It is in my inbox, and I reply within a day or two.",
+      error:
+        "That did not go through. Email me directly at anas.chaabane98@gmail.com and it will reach me.",
       required: "This field is required.",
       invalidEmail: "Enter a valid email address.",
       tooShort: "A little more detail would help.",

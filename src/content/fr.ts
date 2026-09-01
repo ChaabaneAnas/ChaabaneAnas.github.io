@@ -570,8 +570,10 @@ export const fr: Content = {
       messagePlaceholder: "Parlez-moi du poste, du projet ou du problème.",
       submit: "Envoyer le message",
       sending: "Envoi…",
-      success: "Message envoyé. Je reviens vers vous très vite.",
-      error: "Un problème est survenu. Écrivez-moi directement, ça arrivera.",
+      success:
+        "Merci — votre message a bien été envoyé. Il est dans ma boîte mail, et je réponds sous un à deux jours.",
+      error:
+        "L'envoi a échoué. Écrivez-moi directement à anas.chaabane98@gmail.com, ça arrivera.",
       required: "Ce champ est obligatoire.",
       invalidEmail: "Saisissez une adresse e-mail valide.",
       tooShort: "Un peu plus de détail serait utile.",
