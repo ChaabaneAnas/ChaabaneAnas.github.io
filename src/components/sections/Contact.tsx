@@ -323,7 +323,7 @@ function TextField({
 }: TextFieldProps) {
   const base = cn(
     "w-full rounded-lg border bg-bg px-4 py-3 text-sm text-text placeholder:text-dim transition-colors",
-    error ? "border-[#fca5a5]/60" : "border-line hover:border-line focus:border-accent/60",
+    error ? "border-danger/60" : "border-line hover:border-line focus:border-accent/60",
   );
 
   return (
@@ -359,7 +359,7 @@ function TextField({
         />
       )}
       {error ? (
-        <p id={`${id}-error`} className="mt-2 text-xs text-[#fca5a5]">
+        <p id={`${id}-error`} className="mt-2 text-xs text-danger">
           {error}
         </p>
       ) : null}
