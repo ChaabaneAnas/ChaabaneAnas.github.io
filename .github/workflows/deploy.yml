@@ -28,10 +28,24 @@ jobs:
 
       - run: npm ci
 
+      # A missing key does not break the build — it silently ships a contact
+      # form that opens the visitor's mail client instead of sending. Fail here
+      # instead, so a green run means the form actually works.
+      - name: Check the contact-form key reached this job
+        env:
+          KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_KEY || vars.NEXT_PUBLIC_WEB3FORMS_KEY }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "::error::NEXT_PUBLIC_WEB3FORMS_KEY is empty in the build job, so the contact form would ship in mailto-fallback mode. Add it under Settings -> Secrets and variables -> Actions -> Secrets -> Repository secrets. An *environment* secret will not work here: this job declares no environment, and GitHub only injects environment secrets into jobs that do."
+            exit 1
+          fi
+
       - run: npm run build
         env:
-          NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_KEY }}
-          NEXT_PUBLIC_GITHUB_USER: ${{ github.repository_owner }}
+          # Read either namespace, so a value added under the Variables tab
+          # rather than Secrets still reaches the build.
+          NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_KEY || vars.NEXT_PUBLIC_WEB3FORMS_KEY }}
+          NEXT_PUBLIC_GITHUB_USER: ${{ vars.NEXT_PUBLIC_GITHUB_USER || github.repository_owner }}
 
       - uses: actions/configure-pages@v5
 
