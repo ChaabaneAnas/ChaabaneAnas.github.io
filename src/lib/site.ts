@@ -13,6 +13,13 @@ export const SITE = {
   github: "https://github.com/ChaabaneAnas",
   githubUser: process.env.NEXT_PUBLIC_GITHUB_USER ?? "ChaabaneAnas",
   resume: "/Eng_Anas_Chaabane.pdf",
+
+  /**
+   * Hero portrait. Leave null and the hero renders exactly as it does without
+   * one — no placeholder, no reserved gap. Set all three fields together: the
+   * dimensions are what stop the image shifting the layout as it loads.
+   */
+  portrait: { src: "/portrait.webp", width: 640, height: 640 },
   since: 2022,
 } as const;
 

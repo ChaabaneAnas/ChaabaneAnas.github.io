@@ -29,7 +29,7 @@
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
     monospace;
 
-  --text-display: clamp(3.25rem, 13vw, 11rem);
+  --text-display: clamp(3rem, 7.6vw, 7.5rem);
   --text-display--line-height: 0.86;
   --text-display--letter-spacing: -0.045em;
 
@@ -145,6 +145,10 @@
 
 @utility mask-fade-y {
   mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+}
+
+@utility mask-fade-b {
+  mask-image: linear-gradient(to bottom, #000 70%, transparent);
 }
 
 @utility mask-fade-x {
