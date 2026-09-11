@@ -122,7 +122,7 @@ export const en: Content = {
           ],
           metrics: [
             { value: "−25%", label: "React re-renders" },
-            { value: "5+", label: "Developers led" },
+            { value: "4+", label: "Developers led" },
             { value: "2", label: "BI platforms targeted" },
           ],
         },

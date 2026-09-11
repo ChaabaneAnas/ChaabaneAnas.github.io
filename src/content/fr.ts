@@ -122,7 +122,7 @@ export const fr: Content = {
           ],
           metrics: [
             { value: "−25 %", label: "Re-rendus React" },
-            { value: "5+", label: "Développeurs encadrés" },
+            { value: "4+", label: "Développeurs encadrés" },
             { value: "2", label: "Plateformes BI visées" },
           ],
         },
